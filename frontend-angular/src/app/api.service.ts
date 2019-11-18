@@ -8,10 +8,16 @@ export class ApiService
 {
     private selectedQuestion = new Subject<any>(); //selectedQ. property will hold reference to the question we clicked on and select it.
     questionSelected= this.selectedQuestion.asObservable();
+
+    private selectedQuiz = new Subject<any>(); //selectedQ. property will hold reference to the question we clicked on and select it.
+    quizSelected= this.selectedQuiz.asObservable();
     
     constructor(private http: HttpClient) {}
-    getQuestions() {
-        return this.http.get('https://localhost:44380/api/questions');
+    getQuestions(quizId) {
+        return this.http.get(`https://localhost:44380/api/questions/${quizId}`);
+        }
+    getQuizzes() {
+        return this.http.get('https://localhost:44380/api/quizzes');
         }
 
     postQuestion(question) {
@@ -25,8 +31,23 @@ export class ApiService
             console.log(res)
         })
     }
+    postQuiz(quiz) {
+        this.http.post('https://localhost:44380/api/quizzes', quiz).subscribe(res => {
+            console.log(res)
+        })
+    }
+    putQuiz(quiz)
+    {
+        this.http.put(`https://localhost:44380/api/quizzes/${quiz.id}`, quiz).subscribe(res => {
+            console.log(res)
+        })
+    }
+    
     selectQuestion(question){ //actual function to execute it
         this.selectedQuestion.next(question)
+    }
+    selectQuizz(quiz){
+        this.selectedQuiz.next(quiz)
     }
 
 }

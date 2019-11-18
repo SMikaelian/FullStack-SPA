@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\smika\\Desktop\\CSUN\\COMP 586\\FullStack-SPA\\FullStack-SPA\\backend\\backend\\backend.csproj": {}
+    "C:\\Users\\smika\\Desktop\\CSUN\\COMP 586\\FullStack-SPA\\backend\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\smika\\Desktop\\CSUN\\COMP 586\\FullStack-SPA\\FullStack-SPA\\backend\\backend\\backend.csproj": {
+    "C:\\Users\\smika\\Desktop\\CSUN\\COMP 586\\FullStack-SPA\\backend\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\smika\\Desktop\\CSUN\\COMP 586\\FullStack-SPA\\FullStack-SPA\\backend\\backend\\backend.csproj",
+        "projectUniqueName": "C:\\Users\\smika\\Desktop\\CSUN\\COMP 586\\FullStack-SPA\\backend\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Users\\smika\\Desktop\\CSUN\\COMP 586\\FullStack-SPA\\FullStack-SPA\\backend\\backend\\backend.csproj",
+        "projectPath": "C:\\Users\\smika\\Desktop\\CSUN\\COMP 586\\FullStack-SPA\\backend\\backend\\backend.csproj",
         "packagesPath": "C:\\Users\\smika\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\smika\\Desktop\\CSUN\\COMP 586\\FullStack-SPA\\FullStack-SPA\\backend\\backend\\obj\\",
+        "outputPath": "C:\\Users\\smika\\Desktop\\CSUN\\COMP 586\\FullStack-SPA\\backend\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

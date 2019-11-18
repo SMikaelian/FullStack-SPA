@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\backend",
+    "\\backend\\backend",
+    "\\backend\\backend\\Controllers",
+    "\\backend\\backend\\Models",
+    "\\frontend-angular",
+    "\\frontend-angular\\src",
+    "\\frontend-angular\\src\\app"
+  ],
+  "SelectedNode": "\\backend\\backend.sln",
+  "PreviewInSolutionExplorer": false
+}

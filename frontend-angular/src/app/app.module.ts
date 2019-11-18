@@ -17,17 +17,25 @@ import { QuestionComponent } from './question.component'
 import { QuestionsComponent } from './questions.component'
 import{ HomeComponent} from './home.component'
 import{ NavComponent} from './nav.component'
+import { QuizComponent } from './quiz.component'
+import { QuizzesComponent} from './quizzes.component'
+
 
 //Creating routes in angular - URL routes
 const routes = [
   { path: '', component: HomeComponent},
   { path: 'question', component: QuestionComponent},
-  { path: 'questions', component: QuestionsComponent}
+  { path: 'question/:quizId', component: QuestionComponent},
+  { path: 'questions', component: QuestionsComponent },
+  { path: 'quiz', component: QuizComponent }
+  
 ]
 
 @NgModule({
   declarations: [
-    AppComponent, QuestionComponent, QuestionsComponent, HomeComponent, NavComponent
+        AppComponent,
+        QuestionComponent,
+        QuestionsComponent, HomeComponent, NavComponent, QuizComponent, QuizzesComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
