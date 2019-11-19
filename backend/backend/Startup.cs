@@ -33,7 +33,10 @@ namespace backend
                 .AllowAnyMethod()
                 .AllowAnyHeader();
             }));
+            
             services.AddDbContext<QuizContext>(opt => opt.UseInMemoryDatabase("quiz"));
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<>();
+
             //services.AddDbContext<UniversityDBContext>(options =>
             //{
             //    options.UseSqlServer(Configuration.GetConnectionString("UniversityDBConnection"));
