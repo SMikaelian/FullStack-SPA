@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {MatButtonModule} from '@angular/material'
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import {FormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {RouterModule} from '@angular/router'
 import {MatListModule} from '@angular/material/list';
@@ -19,14 +19,14 @@ import{ HomeComponent} from './home.component'
 import{ NavComponent} from './nav.component'
 import { QuizComponent } from './quiz.component'
 import { QuizzesComponent} from './quizzes.component'
-
+import {RegisterComponent} from './register.component'
 
 //Creating routes in angular - URL routes
 const routes = [
   { path: '', component: HomeComponent},
   { path: 'question', component: QuestionComponent},
   { path: 'question/:quizId', component: QuestionComponent},
-  { path: 'questions', component: QuestionsComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'quiz', component: QuizComponent }
   
 ]
@@ -35,13 +35,13 @@ const routes = [
   declarations: [
         AppComponent,
         QuestionComponent,
-        QuestionsComponent, HomeComponent, NavComponent, QuizComponent, QuizzesComponent
+        QuestionsComponent, HomeComponent, NavComponent, QuizComponent, QuizzesComponent, RegisterComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
     RouterModule.forRoot(routes),
       AppRoutingModule,
-      BrowserAnimationsModule, MatButtonModule, MatInputModule, MatCardModule, FormsModule, MatListModule, MatToolbarModule
+      BrowserAnimationsModule, MatButtonModule, MatInputModule, MatCardModule, FormsModule, MatListModule, MatToolbarModule, ReactiveFormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

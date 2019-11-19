@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using backend.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace backend
 {
-    public class UserDbContext : DbContext
+    public class UserDbContext : IdentityDbContext<IdentityUser>
     {
-        public UserDbContext(DbContextOptions<QuizContext> options) : base(options) { }
+        public UserDbContext(DbContextOptions<UserDbContext> options) : base(options) { }
         public DbSet<Models.Question> Questions { get; set; } //Columns
         public DbSet<backend.Models.Quiz> Quiz { get; set; }
 
