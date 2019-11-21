@@ -12,6 +12,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace backend
 {
@@ -39,6 +42,26 @@ namespace backend
             services.AddDbContext<UserDbContext>(opt => opt.UseInMemoryDatabase("user"));
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<UserDbContext>();
 
+            var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is the secret phrase"));
+            //JWT authentication - token capture and validation by back end
+            services.AddAuthentication(options =>
+           {
+               options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+               options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+           }).AddJwtBearer(cfg =>
+           {
+               cfg.RequireHttpsMetadata = false;
+               cfg.SaveToken = true;
+               cfg.TokenValidationParameters = new TokenValidationParameters()
+               {
+                   IssuerSigningKey = signingKey,
+                   ValidateAudience = false,
+                   ValidateIssuer = false,
+                   ValidateLifetime = false,
+                   ValidateIssuerSigningKey = true
+               };
+           });
+
             //services.AddDbContext<UniversityDBContext>(options =>
             //{
             //    options.UseSqlServer(Configuration.GetConnectionString("UniversityDBConnection"));
@@ -50,6 +73,7 @@ namespace backend
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseAuthentication();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

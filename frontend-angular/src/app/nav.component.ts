@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthService} from './auth.service'
 
 
 @Component({
@@ -7,12 +8,17 @@ import { Component } from '@angular/core';
   <mat-toolbar>
     <button mat-button routerLink="/">Quiz</button>
     <span style="flex: 1 1 auto;"></span>
-    <button mat-button routerLink="/register">Register</button>
+    <button *ngIf="!auth.isAuthenticated" mat-button routerLink="/register">Register</button>
+    <button *ngIf="!auth.isAuthenticated" mat-button routerLink="/login">Login</button>
+    <button *ngIf="auth.isAuthenticated" mat-button (click)="auth.logout()")>Logout</button>
   </mat-toolbar>
   `
 })
 export class NavComponent {
-  title = 'my frontend';
+  //Inject with a constructor
+  constructor(private auth: AuthService){
+
+  }
 }
 
 

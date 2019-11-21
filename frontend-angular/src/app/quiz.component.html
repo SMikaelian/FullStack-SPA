@@ -13,8 +13,7 @@
         </mat-card-content>
         <mat-card-actions>
             <button mat-button *ngIf="quiz.id" (click)="api.putQuiz(quiz)">EDIT</button>
-            <button mat-button *ngIf="quiz.id" (click)="quiz={}")>NEW</button>
-            <button mat-button *ngIf="quiz.id" [routerLink]="['/question', quiz.id]">EDIT QUESTIONS</button>
+            <button mat-button *ngIf="quiz.id" (click)="quiz = {}">NEW</button>            <button mat-button *ngIf="quiz.id" [routerLink]="['/quiz', quiz.id]">EDIT QUESTIONS</button>
             <button mat-button *ngIf="!quiz.id" (click)="api.postQuiz(quiz)">POST</button>  
         </mat-card-actions>
       </mat-card>

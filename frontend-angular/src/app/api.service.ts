@@ -13,6 +13,7 @@ export class ApiService
     quizSelected= this.selectedQuiz.asObservable();
     
     constructor(private http: HttpClient) {}
+    
     getQuestions(quizId) {
         return this.http.get(`https://localhost:44380/api/questions/${quizId}`);
         }
@@ -42,11 +43,11 @@ export class ApiService
             console.log(res)
         })
     }
-    
+
     selectQuestion(question){ //actual function to execute it
         this.selectedQuestion.next(question)
     }
-    selectQuizz(quiz){
+    selectQuiz(quiz){
         this.selectedQuiz.next(quiz)
     }
 

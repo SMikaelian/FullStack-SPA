@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using backend;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Controllers
 {
@@ -22,10 +23,12 @@ namespace backend.Controllers
         }
 
         // GET: api/Quizzes
+        [Authorize]
         [HttpGet]
         public IEnumerable<Quiz> GetQuiz()
         {
-            return _context.Quiz;
+            var userId = HttpContext.User.Claims.First().Value;
+            return _context.Quiz.Where(q => q.OwnerId == userId); //Where if the owner ID matches the user ID we return the quiz
         }
 
         // GET: api/Quizzes/5
@@ -83,6 +86,7 @@ namespace backend.Controllers
         }
 
         // POST: api/Quizzes
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> PostQuiz([FromBody] Quiz quiz)
         {
@@ -90,6 +94,9 @@ namespace backend.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            var userId = HttpContext.User.Claims.First().Value; //for authorization/registration and user token
+            quiz.OwnerId = userId;
 
             _context.Quiz.Add(quiz);
             await _context.SaveChangesAsync();
