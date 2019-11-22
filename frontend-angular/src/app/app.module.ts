@@ -9,6 +9,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {RouterModule} from '@angular/router'
 import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
 import {ApiService} from './api.service'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +24,8 @@ import {RegisterComponent} from './register.component'
 import {LoginComponent} from './login.component'
 import {AuthService} from './auth.service'
 import {AuthInterceptor} from './auth.interceptor'
+import { PlayComponent} from './play.component'
+import{ PlayQuizComponent} from './playQuiz.component'
 
 //Creating routes in angular - URL routes
 const routes = [
@@ -31,8 +34,9 @@ const routes = [
   { path: 'question/:quizId', component: QuestionComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'quiz', component: QuizComponent }
-  
+  { path: 'quiz', component: QuizComponent },
+  { path: 'play', component: PlayComponent },
+  { path: 'playQuiz/:quizId', component: PlayQuizComponent }
 ]
 
 @NgModule({
@@ -45,13 +49,23 @@ const routes = [
         QuizComponent, 
         QuizzesComponent, 
         RegisterComponent,
-        LoginComponent
+        LoginComponent,
+        PlayComponent,
+        PlayQuizComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
     RouterModule.forRoot(routes),
       AppRoutingModule,
-      BrowserAnimationsModule, MatButtonModule, MatInputModule, MatCardModule, FormsModule, MatListModule, MatToolbarModule, ReactiveFormsModule
+      BrowserAnimationsModule, 
+      MatButtonModule, 
+      MatInputModule, 
+      MatCardModule, 
+      FormsModule, 
+      MatListModule,
+      MatToolbarModule, 
+      ReactiveFormsModule,
+      MatExpansionModule
   ],
   providers: [ApiService, AuthService, {
     provide: HTTP_INTERCEPTORS,

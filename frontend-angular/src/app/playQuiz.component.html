@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-content>
+        
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let question of questions; let i = index" [expanded]="step === i" (opened)="setStep(i)">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{question.text}}
+                </mat-panel-title>
+                <mat-panel-description>
+                  
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              {{question.correctAnswer}}
+              <mat-action-row>
+                <button mat-button color="primary" (click)="nextStep()">Next</button>
+              </mat-action-row>
+            </mat-expansion-panel>
+          </mat-accordion>
+          
+    </mat-card-content>
+    <mat-card-actions> 
+    </mat-card-actions>
+</mat-card>

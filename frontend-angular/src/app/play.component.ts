@@ -19,8 +19,19 @@ export class PlayComponent {
         this.api.getAllQuizzes().subscribe(res => {
             this.quizzes = res
         })
-
     }
-    
+    step = 0;
+
+    setStep(index: number) {
+      this.step = index;
+    }
+  
+    nextStep() {
+      this.step++;
+    }
+  
+    prevStep() {
+      this.step--;
+    }
 
 }
