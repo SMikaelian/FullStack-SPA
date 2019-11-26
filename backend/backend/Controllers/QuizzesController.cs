@@ -33,7 +33,7 @@ namespace backend.Controllers
 
         // Get function to get all the quizzes
         [HttpGet("all")]
-        public IEnumerable<Quiz> GetAllQuiz()
+        public IEnumerable<Quiz> GetAllQuizzes()
         {
             return _context.Quiz; //Where if the owner ID matches the user ID we return the quiz
         }

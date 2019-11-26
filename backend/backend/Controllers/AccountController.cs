@@ -38,6 +38,7 @@ namespace backend.Controllers
                 return BadRequest(result.Errors);
             
             await signInManager.SignInAsync(user, isPersistent: false);
+
             return Ok(CreateToken(user));
         }
 
@@ -45,8 +46,9 @@ namespace backend.Controllers
         public async Task<IActionResult> Login([FromBody] Credentials credentials)
         {
             var result = await signInManager.PasswordSignInAsync(credentials.Email, credentials.Password, false, false);
-                if(!result.Succeeded)
-                    return BadRequest();
+            
+            if(!result.Succeeded)
+                return BadRequest();
 
 
             var user = await userManager.FindByEmailAsync(credentials.Email);
@@ -57,9 +59,9 @@ namespace backend.Controllers
         string CreateToken(IdentityUser user)
         {
             var claims = new Claim[] //user ID for posting capabilities, user id is embedded in the token itself
-{
+            {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id)
-};
+            };
 
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is the secret phrase"));
             var signingCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256);

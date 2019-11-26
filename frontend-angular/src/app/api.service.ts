@@ -17,6 +17,7 @@ export class ApiService
     getQuestions(quizId) {
         return this.http.get(`https://localhost:44380/api/questions/${quizId}`);
         }
+        
     getQuizzes() {
         return this.http.get('https://localhost:44380/api/quizzes');
         }

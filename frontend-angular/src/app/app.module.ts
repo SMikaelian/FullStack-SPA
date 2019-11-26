@@ -10,6 +10,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {RouterModule} from '@angular/router'
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDialogModule} from '@angular/material/dialog';
 import {ApiService} from './api.service'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +28,7 @@ import {AuthService} from './auth.service'
 import {AuthInterceptor} from './auth.interceptor'
 import { PlayComponent} from './play.component'
 import{ PlayQuizComponent} from './playQuiz.component'
+import {FinishedComponent} from './finished.component'
 
 //Creating routes in angular - URL routes
 const routes = [
@@ -51,7 +54,8 @@ const routes = [
         RegisterComponent,
         LoginComponent,
         PlayComponent,
-        PlayQuizComponent
+        PlayQuizComponent,
+        FinishedComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
@@ -65,13 +69,17 @@ const routes = [
       MatListModule,
       MatToolbarModule, 
       ReactiveFormsModule,
-      MatExpansionModule
+      MatExpansionModule,
+      MatRadioModule,
+      MatDialogModule
   ],
   providers: [ApiService, AuthService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
   }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  //for dialogs we need to register them differently.
+  entryComponents: [FinishedComponent]
 })
 export class AppModule { }

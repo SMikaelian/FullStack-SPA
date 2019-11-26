@@ -20,18 +20,5 @@ export class PlayComponent {
             this.quizzes = res
         })
     }
-    step = 0;
-
-    setStep(index: number) {
-      this.step = index;
-    }
-  
-    nextStep() {
-      this.step++;
-    }
-  
-    prevStep() {
-      this.step--;
-    }
 
 }
