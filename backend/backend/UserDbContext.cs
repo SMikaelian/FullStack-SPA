@@ -12,8 +12,8 @@ namespace backend
     public class UserDbContext : IdentityDbContext<IdentityUser>
     {
         public UserDbContext(DbContextOptions<UserDbContext> options) : base(options) { }
-        public DbSet<Models.Question> Questions { get; set; } //Columns
-        public DbSet<backend.Models.Quiz> Quiz { get; set; }
+        //public DbSet<Models.Question> Questions { get; set; } //Columns
+        //public DbSet<backend.Models.Quiz> Quiz { get; set; }
 
     }
 }

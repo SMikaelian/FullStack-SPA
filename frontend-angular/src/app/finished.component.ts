@@ -1,12 +1,11 @@
 import { Component, Inject } from '@angular/core';
-import { QuestionComponent } from './question.component'
-import { QuestionsComponent } from './questions.component'
 import {MAT_DIALOG_DATA} from '@angular/material'
 
 @Component({
   template: `
-        <h1> Thanks for your order! </h1>
-        <h2>{{data.correct}}/{{data.total}}</h2>
+        <h1 *ngIf="data.correct != 0; else elseBlock"> Correct Guess! </h1>
+        <ng-template #elseBlock><div style="font-weight: bold">Wrong Guess! Better luck next time. </div></ng-template>
+        <h2>You Guessed {{data.correct}}/{{data.total}}</h2>
         `
 })
 export class FinishedComponent {

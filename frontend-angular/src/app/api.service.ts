@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
 
@@ -15,36 +15,38 @@ export class ApiService
     constructor(private http: HttpClient) {}
     
     getQuestions(quizId) {
-        return this.http.get(`https://localhost:44380/api/questions/${quizId}`);
+        return this.http.get(`https://localhost:44351/api/questions/${quizId}`);
         }
         
     getQuizzes() {
-        return this.http.get('https://localhost:44380/api/quizzes');
+        return this.http.get('https://localhost:44351/api/quizzes');
         }
 
-        getAllQuizzes() {
-            return this.http.get('https://localhost:44380/api/quizzes/all');
-            }
+    getAllQuizzes() {
+        return this.http.get('https://localhost:44351/api/quizzes/all');
+        }
     
     postQuestion(question) {
-        this.http.post('https://localhost:44380/api/questions', question).subscribe(res => {
+        this.http.post('https://localhost:44351/api/questions', question).subscribe(res => {
             console.log(res)
+            //window.location.reload(true);
         })
+        
     }
     putQuestion(question)
     {
-        this.http.put(`https://localhost:44380/api/questions/${question.id}`, question).subscribe(res => {
+        this.http.put(`https://localhost:44351/api/questions/${question.id}`, question).subscribe(res => {
             console.log(res)
         })
     }
     postQuiz(quiz) {
-        this.http.post('https://localhost:44380/api/quizzes', quiz).subscribe(res => {
+        this.http.post('https://localhost:44351/api/quizzes', quiz).subscribe(res => {
             console.log(res)
         })
     }
     putQuiz(quiz)
     {
-        this.http.put(`https://localhost:44380/api/quizzes/${quiz.id}`, quiz).subscribe(res => {
+        this.http.put(`https://localhost:44351/api/quizzes/${quiz.id}`, quiz).subscribe(res => {
             console.log(res)
         })
     }
@@ -55,5 +57,4 @@ export class ApiService
     selectQuiz(quiz){
         this.selectedQuiz.next(quiz)
     }
-
 }

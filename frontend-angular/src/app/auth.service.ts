@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'
 
 
 @Injectable()
 export class AuthService
 {
 
-    
     constructor(private http: HttpClient, private router: Router) {}
 
     get isAuthenticated(){ //To display logout only to logged in people
@@ -15,12 +14,12 @@ export class AuthService
     }
     
     register(credentials) {
-        return this.http.post<any>(`https://localhost:44380/api/account/`, credentials).subscribe(res=> {
+        this.http.post<any>(`https://localhost:44351/api/account/`, credentials).subscribe(res=> {
             this.authenticate(res)
         })
     }
     login(credentials) {
-        return this.http.post<any>(`https://localhost:44380/api/login/`, credentials).subscribe(res=> {
+        this.http.post<any>(`https://localhost:44351/api/login/`, credentials).subscribe(res=> {
             this.authenticate(res)
         })
     }

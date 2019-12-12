@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { HttpClient, HttpInterceptor } from '@angular/common/http'
+import { HttpClient, HttpInterceptor } from '@angular/common/http';
 
 
 @Injectable()

@@ -16,7 +16,7 @@
               <mat-radio-group 
               aria-labelledby="example-radio-group-label"
               [(ngModel)]="question.selectedAnswer">
-              <mat-radio-button class="fullWidth" *ngFor="let answer of questions" [value]="answer">
+              <mat-radio-button class="fullWidth" *ngFor="let answer of question.answers" [value]="answer">
                   {{answer}}
               </mat-radio-button>
 

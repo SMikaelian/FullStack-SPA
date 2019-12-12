@@ -37,7 +37,7 @@ namespace backend.Controllers
         [HttpPost]   
         public async Task<IActionResult> Post([FromBody]Models.Question question)  //IActionResult Index() is same as HttpGet public void Post
         {
-            var quiz = context.Quiz.SingleOrDefault(q => q.ID == question.QuizId);
+            var quiz = context.Quiz.SingleOrDefault(q => q.Id == question.QuizId);
             if (quiz == null)
                 return NotFound();
 
@@ -51,7 +51,7 @@ namespace backend.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody]Models.Question question)
         {
-            if (id != question.ID)
+            if (id != question.Id)
                 return BadRequest();
             //var question = await context.Questions.SingleOrDefaultAsync(q => q.ID == id);
             context.Entry(question).State = EntityState.Modified; //Telling the context that the question we get inside out question parameter once found set its state to modified and save changes

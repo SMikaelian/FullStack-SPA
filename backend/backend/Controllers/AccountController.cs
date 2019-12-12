@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;									  
 using Microsoft.IdentityModel.Tokens;
 
 namespace backend.Controllers
@@ -17,8 +18,8 @@ namespace backend.Controllers
         public string Email { get; set; }
         public string Password { get; set; }
     }
-    [Route("api/[controller]")]
-    [ApiController]
+	[Produces("application/json")]
+    [Route("api/Account")]	
     public class AccountController : ControllerBase
     {
         readonly UserManager<IdentityUser> userManager;

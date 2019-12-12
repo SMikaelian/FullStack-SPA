@@ -11,8 +11,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [Produces("application/json")]
+    [Route("api/Quizzes")]
     public class QuizzesController : ControllerBase
     {
         private readonly QuizContext _context;
@@ -66,7 +66,7 @@ namespace backend.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != quiz.ID)
+            if (id != quiz.Id)
             {
                 return BadRequest();
             }
@@ -97,10 +97,10 @@ namespace backend.Controllers
         [HttpPost]
         public async Task<IActionResult> PostQuiz([FromBody] Quiz quiz)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
             var userId = HttpContext.User.Claims.First().Value; //for authorization/registration and user token
             quiz.OwnerId = userId;
@@ -108,7 +108,7 @@ namespace backend.Controllers
             _context.Quiz.Add(quiz);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetQuiz", new { id = quiz.ID }, quiz);
+            return CreatedAtAction("GetQuiz", new { id = quiz.Id }, quiz);
         }
 
         // DELETE: api/Quizzes/5
@@ -134,7 +134,7 @@ namespace backend.Controllers
 
         private bool QuizExists(int id)
         {
-            return _context.Quiz.Any(e => e.ID == id);
+            return _context.Quiz.Any(e => e.Id == id);
         }
     }
 }

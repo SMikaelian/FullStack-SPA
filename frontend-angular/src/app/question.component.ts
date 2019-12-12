@@ -12,6 +12,8 @@ export class QuestionComponent {
 
     question={}
     quizId
+    arrayQ=[]
+
     constructor(private api: ApiService, private route: ActivatedRoute){ //Inject route with constructor
 
     }
@@ -24,6 +26,8 @@ export class QuestionComponent {
     post(question) {
         question.quizId= this.quizId
         this.api.postQuestion(question)
+        window.location.reload(true);
+        //this.arrayQ.push(question);
     }
 
 }
