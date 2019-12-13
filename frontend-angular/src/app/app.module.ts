@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {RouterModule} from '@angular/router'
+import {RouterModule, Routes} from '@angular/router'
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
@@ -29,6 +29,8 @@ import {AuthInterceptor} from './auth.interceptor'
 import { PlayComponent} from './play.component'
 import{ PlayQuizComponent} from './playQuiz.component'
 import {FinishedComponent} from './finished.component'
+import {OktaAuthModule, OktaCallbackComponent} from '@okta/okta-angular';
+
 
 //Creating routes in angular - URL routes
 const routes = [
@@ -39,8 +41,16 @@ const routes = [
   { path: 'login', component: LoginComponent },
   { path: 'quiz', component: QuizComponent },
   { path: 'play', component: PlayComponent },
-  { path: 'playQuiz/:quizId', component: PlayQuizComponent }
+  { path: 'playQuiz/:quizId', component: PlayQuizComponent },
+  { path: 'implicit/callback', component: OktaCallbackComponent}
 ]
+
+const config = {
+  issuer: 'https://dev-504074.okta.com/oauth2/default',
+  redirectUri: 'http://localhost:4200/implicit/callback',
+  clientId: '0oa275vbscKnmY8LW357',
+  pkce: true
+}
 
 @NgModule({
   declarations: [
@@ -71,7 +81,8 @@ const routes = [
       ReactiveFormsModule,
       MatExpansionModule,
       MatRadioModule,
-      MatDialogModule
+      MatDialogModule,
+      OktaAuthModule.initAuth(config)
   ],
   providers: [ApiService, AuthService, {
     provide: HTTP_INTERCEPTORS,
