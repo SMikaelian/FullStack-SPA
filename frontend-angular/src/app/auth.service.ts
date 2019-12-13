@@ -14,7 +14,7 @@ export class AuthService
     }
     
     register(credentials) {
-        this.http.post<any>(`http://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/account/`, credentials).subscribe(res=> {
+        this.http.post<any>(`http://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/Account/`, credentials).subscribe(res=> {
             this.authenticate(res)
         })
     }
