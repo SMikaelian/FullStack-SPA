@@ -14,12 +14,12 @@ export class AuthService
     }
     
     register(credentials) {
-        this.http.post<any>(`http://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/Account/`, credentials).subscribe(res=> {
+        this.http.post<any>(`https://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/Account/`, credentials).subscribe(res=> {
             this.authenticate(res)
         })
     }
     login(credentials) {
-        this.http.post<any>(`http://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/login/`, credentials).subscribe(res=> {
+        this.http.post<any>(`https://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/login/`, credentials).subscribe(res=> {
             this.authenticate(res)
         })
     }

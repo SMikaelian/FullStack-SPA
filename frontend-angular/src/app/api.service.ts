@@ -15,19 +15,19 @@ export class ApiService
     constructor(private http: HttpClient) {}
     
     getQuestions(quizId) {
-        return this.http.get(`http://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/questions/${quizId}`);
+        return this.http.get(`https://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/questions/${quizId}`);
         }
         //https://localhost:44351
     getQuizzes() {
-        return this.http.get('http://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/quizzes');
+        return this.http.get('https://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/quizzes');
         }
 
     getAllQuizzes() {
-        return this.http.get('http://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/quizzes/all');
+        return this.http.get('https://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/quizzes/all');
         }
     
     postQuestion(question) {
-        this.http.post('http://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/questions', question).subscribe(res => {
+        this.http.post('https://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/questions', question).subscribe(res => {
             console.log(res)
             //window.location.reload(true);
         })
@@ -35,18 +35,18 @@ export class ApiService
     }
     putQuestion(question)
     {
-        this.http.put(`http://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/questions/${question.id}`, question).subscribe(res => {
+        this.http.put(`https://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/questions/${question.id}`, question).subscribe(res => {
             console.log(res)
         })
     }
     postQuiz(quiz) {
-        this.http.post('http://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/quizzes', quiz).subscribe(res => {
+        this.http.post('https://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/quizzes', quiz).subscribe(res => {
             console.log(res)
         })
     }
     putQuiz(quiz)
     {
-        this.http.put(`http://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/quizzes/${quiz.id}`, quiz).subscribe(res => {
+        this.http.put(`https://comp586fullstack-env.fn2pvausuv.us-west-2.elasticbeanstalk.com/api/quizzes/${quiz.id}`, quiz).subscribe(res => {
             console.log(res)
         })
     }
