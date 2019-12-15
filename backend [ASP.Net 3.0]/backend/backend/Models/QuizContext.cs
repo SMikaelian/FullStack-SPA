@@ -6,14 +6,9 @@ namespace backend.Models
 {
     public partial class QuizContext : DbContext
     {
-        public QuizContext()
-        {
-        }
+        public QuizContext() {}
 
-        public QuizContext(DbContextOptions<QuizContext> options)
-            : base(options)
-        {
-        }
+        public QuizContext(DbContextOptions<QuizContext> options) : base(options) {}
 
         public virtual DbSet<Question> Question { get; set; }
         public virtual DbSet<Quiz> Quiz { get; set; }

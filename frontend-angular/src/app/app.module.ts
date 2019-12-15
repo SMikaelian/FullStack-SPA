@@ -30,6 +30,8 @@ import { PlayComponent} from './play.component'
 import{ PlayQuizComponent} from './playQuiz.component'
 import {FinishedComponent} from './finished.component'
 import {OktaAuthModule, OktaCallbackComponent} from '@okta/okta-angular';
+import { ProfileComponent } from './profile.component';
+
 
 
 //Creating routes in angular - URL routes
@@ -42,13 +44,15 @@ const routes = [
   { path: 'quiz', component: QuizComponent },
   { path: 'play', component: PlayComponent },
   { path: 'playQuiz/:quizId', component: PlayQuizComponent },
-  { path: 'implicit/callback', component: OktaCallbackComponent}
+  { path: 'implicit/callback', component: OktaCallbackComponent},
+  { path: 'profile', component: ProfileComponent}
 ]
 
 const config = {
   issuer: 'https://dev-504074.okta.com/oauth2/default',
   redirectUri: 'http://localhost:4200/implicit/callback',
-  clientId: '0oa275vbscKnmY8LW357',
+  clientId: '0oa27w72fbiYSmZWv357',
+  scopes: ['openid', 'profile', 'email'],
   pkce: true
 }
 
@@ -63,6 +67,7 @@ const config = {
         QuizzesComponent, 
         RegisterComponent,
         LoginComponent,
+        ProfileComponent,
         PlayComponent,
         PlayQuizComponent,
         FinishedComponent

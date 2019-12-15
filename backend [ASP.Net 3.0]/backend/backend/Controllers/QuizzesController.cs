@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace backend.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Quizzes")]
+    [Route("api/quizzes")]
     public class QuizzesController : ControllerBase
     {
         private readonly QuizContext _context;
@@ -23,12 +23,13 @@ namespace backend.Controllers
         }
 
         // GET: api/Quizzes
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public IEnumerable<Quiz> GetQuiz()
         {
-            var userId = HttpContext.User.Claims.First().Value;
-            return _context.Quiz.Where(q => q.OwnerId == userId); //Where if the owner ID matches the user ID we return the quiz
+            //var userId = HttpContext.User.Claims.First().Value;
+            return _context.Quiz;
+            //.Where(q => q.OwnerId == userId); //Where if the owner ID matches the user ID we return the quiz
         }
 
         // Get function to get all the quizzes
@@ -93,17 +94,17 @@ namespace backend.Controllers
         }
 
         // POST: api/Quizzes
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public async Task<IActionResult> PostQuiz([FromBody] Quiz quiz)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return BadRequest(ModelState);
-            //}
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-            var userId = HttpContext.User.Claims.First().Value; //for authorization/registration and user token
-            quiz.OwnerId = userId;
+            //var userId = HttpContext.User.Claims.First().Value; //for authorization/registration and user token
+            //quiz.OwnerId = userId;
 
             _context.Quiz.Add(quiz);
             await _context.SaveChangesAsync();

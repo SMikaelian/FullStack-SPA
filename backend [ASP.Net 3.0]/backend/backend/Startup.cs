@@ -33,16 +33,16 @@ namespace backend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            //services.AddAuthentication(options =>
-            //{
-            //    options.DefaultAuthenticateScheme = OktaDefaults.ApiAuthenticationScheme;
-            //    options.DefaultChallengeScheme = OktaDefaults.ApiAuthenticationScheme;
-            //    options.DefaultSignInScheme = OktaDefaults.ApiAuthenticationScheme;
-            //})
-            //.AddOktaWebApi(new OktaWebApiOptions()
-            //{
-            //    OktaDomain = "https://dev-504074.okta.com"
-            //});
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = OktaDefaults.ApiAuthenticationScheme;
+                options.DefaultChallengeScheme = OktaDefaults.ApiAuthenticationScheme;
+                options.DefaultSignInScheme = OktaDefaults.ApiAuthenticationScheme;
+            })
+            .AddOktaWebApi(new OktaWebApiOptions()
+            {
+                OktaDomain = "https://dev-504074.okta.com"
+            });
 
             services.AddCors(options => options.AddPolicy("Cors", builder =>
             {
@@ -52,29 +52,29 @@ namespace backend
                 .AllowAnyHeader();
             }));
 
-            services.AddDbContext<QuizContext>(opt => opt.UseInMemoryDatabase("quiz"));
-            services.AddDbContext<UserDbContext>(opt => opt.UseInMemoryDatabase("user"));
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<UserDbContext>();
+            //services.AddDbContext<QuizContext>(opt => opt.UseInMemoryDatabase("quiz"));
+            //services.AddDbContext<UserDbContext>(opt => opt.UseInMemoryDatabase("user"));
+            //services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<UserDbContext>();
 
-            var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is the secret phrase"));
+            //var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is the secret phrase"));
             //JWT authentication - token capture and validation by back end
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(cfg =>
-            {
-                cfg.RequireHttpsMetadata = false;
-                cfg.SaveToken = true;
-                cfg.TokenValidationParameters = new TokenValidationParameters()
-                {
-                    IssuerSigningKey = signingKey,
-                    ValidateAudience = false,
-                    ValidateIssuer = false,
-                    ValidateLifetime = false,
-                    ValidateIssuerSigningKey = true
-                };
-            });
+            //services.AddAuthentication(options =>
+            //{
+            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //}).AddJwtBearer(cfg =>
+            //{
+            //    cfg.RequireHttpsMetadata = false;
+            //    cfg.SaveToken = true;
+            //    cfg.TokenValidationParameters = new TokenValidationParameters()
+            //    {
+            //        IssuerSigningKey = signingKey,
+            //        ValidateAudience = false,
+            //        ValidateIssuer = false,
+            //        ValidateLifetime = false,
+            //        ValidateIssuerSigningKey = true
+            //    };
+            //});
 
             //services.AddDbContext<UniversityDBContext>(options =>
             //{
@@ -84,6 +84,8 @@ namespace backend
 
             services.AddMvc();
             //.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDbContext<QuizContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("Development")));
         }
 
 
@@ -112,7 +114,7 @@ namespace backend
             });
 
             app.UseCors("Cors");
-            app.UseMvc();
+            //app.UseMvc();
     }
     }
 }
