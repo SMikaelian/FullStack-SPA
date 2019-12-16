@@ -33,7 +33,7 @@ export class NavComponent {
   }
 
   login() {
-    this.oktaAuth.loginRedirect('/profile');
+    this.oktaAuth.loginRedirect('/myProfile');
   }
 
   logout() {

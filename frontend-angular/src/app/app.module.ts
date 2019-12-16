@@ -45,7 +45,7 @@ const routes = [
   { path: 'play', component: PlayComponent },
   { path: 'playQuiz/:quizId', component: PlayQuizComponent },
   { path: 'implicit/callback', component: OktaCallbackComponent},
-  { path: 'profile', component: ProfileComponent}
+  { path: 'myProfile', component: ProfileComponent}
 ]
 
 const config = {
