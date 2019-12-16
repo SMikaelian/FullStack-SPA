@@ -14,12 +14,12 @@ export class AuthService
     }
     
     register(credentials) {
-        this.http.post<any>(`https://localhost:44330/api/Account/`, credentials).subscribe(res=> {
+        this.http.post<any>(`https://guessinggame20191216110748.azurewebsites.net/api/Account/`, credentials).subscribe(res=> {
             this.authenticate(res)
         })
     }
     login(credentials) {
-        this.http.post<any>(`https://localhost:44330/api/login/`, credentials).subscribe(res=> {
+        this.http.post<any>(`https://guessinggame20191216110748.azurewebsites.net/api/login/`, credentials).subscribe(res=> {
             this.authenticate(res)
         })
     }

@@ -15,19 +15,19 @@ export class ApiService
     constructor(private http: HttpClient) {}
     
     getQuestions(quizId) {
-        return this.http.get(`https://localhost:44315/api/questions/${quizId}`);
+        return this.http.get(`https://guessinggame20191216110748.azurewebsites.net/api/questions/${quizId}`);
         }
         //https://localhost:44351
     getQuizzes() {
-        return this.http.get('https://localhost:44315/api/quizzes');
+        return this.http.get('https://guessinggame20191216110748.azurewebsites.net/api/quizzes');
         }
 
     getAllQuizzes() {
-        return this.http.get('https://localhost:44315/api/quizzes/all');
+        return this.http.get('https://guessinggame20191216110748.azurewebsites.net/api/quizzes/all');
         }
     
     postQuestion(question) {
-        this.http.post('https://localhost:44315/api/questions', question).subscribe(res => {
+        this.http.post('https://guessinggame20191216110748.azurewebsites.net/api/questions', question).subscribe(res => {
             console.log(res)
             //window.location.reload(true);
         })
@@ -35,25 +35,25 @@ export class ApiService
     }
     putQuestion(question)
     {
-        this.http.put(`https://localhost:44315/api/questions/${question.id}`, question).subscribe(res => {
+        this.http.put(`https://guessinggame20191216110748.azurewebsites.net/api/questions/${question.id}`, question).subscribe(res => {
             console.log(res)
         })
     }
     postQuiz(quiz) {
-        this.http.post('https://localhost:44315/api/quizzes', quiz).subscribe(res => {
+        this.http.post('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', quiz).subscribe(res => {
             console.log(res)
         })
     }
     putQuiz(quiz)
     {
-        this.http.put(`https://localhost:44315/api/quizzes/${quiz.id}`, quiz).subscribe(res => {
+        this.http.put(`https://guessinggame20191216110748.azurewebsites.net/api/quizzes/${quiz.id}`, quiz).subscribe(res => {
             console.log(res)
         })
     }
     
     deleteQuiz(quiz)
     {
-        this.http.delete('https://localhost:44315/api/quizzes', quiz).subscribe(res => {
+        this.http.delete('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', quiz).subscribe(res => {
             console.log(res)
         })
     }
