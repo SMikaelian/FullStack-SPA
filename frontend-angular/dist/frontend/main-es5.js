@@ -1,3 +1,30 @@
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"], {
         /***/ "./$$_lazy_route_resource lazy recursive": 
         /*!******************************************************!*\
@@ -50,7 +77,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n    <mat-card-content>\r\n        \r\n        <mat-accordion>\r\n            <mat-expansion-panel *ngFor=\"let question of questions; \r\n                let i = index\" [expanded]=\"step === i\" (opened)=\"setStep(i)\">\r\n              <mat-expansion-panel-header>\r\n                <mat-panel-title>\r\n                    {{question.text}}\r\n                </mat-panel-title>\r\n                <mat-panel-description>\r\n                  \r\n                </mat-panel-description>\r\n              </mat-expansion-panel-header>\r\n\r\n              <mat-radio-group \r\n              aria-labelledby=\"example-radio-group-label\"\r\n              [(ngModel)]=\"question.selectedAnswer\">\r\n              <mat-radio-button class=\"fullWidth\" *ngFor=\"let answer of question.answers\" [value]=\"answer\">\r\n                  {{answer}}\r\n              </mat-radio-button>\r\n\r\n              </mat-radio-group>\r\n              <mat-action-row>\r\n                <button mat-button color=\"primary\" (click)=\"nextStep()\">Next</button>\r\n              </mat-action-row>\r\n            </mat-expansion-panel>\r\n          </mat-accordion>\r\n          \r\n    </mat-card-content>\r\n    <mat-card-actions>\r\n            <button mat-button color=\"primary\" (click)=\"finish()\">Next</button>\r\n    </mat-card-actions>\r\n</mat-card>\r\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n    <mat-card-content>\r\n        \r\n        <mat-accordion>\r\n            <mat-expansion-panel *ngFor=\"let question of questions; \r\n                let i = index\" [expanded]=\"step === i\" (opened)=\"setStep(i)\">\r\n              <mat-expansion-panel-header>\r\n                <mat-panel-title>\r\n                    {{question.text}}\r\n                </mat-panel-title>\r\n                <mat-panel-description>\r\n                  \r\n                </mat-panel-description>\r\n              </mat-expansion-panel-header>\r\n\r\n              <mat-radio-group \r\n              aria-labelledby=\"example-radio-group-label\"\r\n              [(ngModel)]=\"question.selectedAnswer\">\r\n              <mat-radio-button class=\"fullWidth\" *ngFor=\"let answer of question.answers\" [value]=\"answer\">\r\n                  {{answer}}\r\n              </mat-radio-button>\r\n\r\n              </mat-radio-group>\r\n              <mat-action-row>\r\n                <button mat-button color=\"primary\" (click)=\"nextStep()\">Next</button>\r\n              </mat-action-row>\r\n            </mat-expansion-panel>\r\n          </mat-accordion>\r\n          \r\n    </mat-card-content>\r\n    <mat-card-actions>\r\n            <button mat-button color=\"primary\" (click)=\"finish()\">Finish</button>\r\n    </mat-card-actions>\r\n</mat-card>\r\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/question.component.html": 
@@ -61,7 +88,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n  <mat-card-title>\r\n    <span *ngIf=\"question.id\">Edit Question</span>\r\n    <span *ngIf=\"!question.id\">New Question</span>\r\n  </mat-card-title>\r\n  <mat-card-content>\r\n    <form>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.text\" name=\"question\" matInput placeholder=\"Question\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.correctAnswer\" name=\"correctAnswer\" matInput placeholder=\" Correct Guess\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.answer1\" name=\"answer1\" matInput placeholder=\"Wrong Guess 1\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.answer2\" name=\"answer2\" matInput placeholder=\"Wrong Guess 2\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.answer3\" name=\"answer3\" matInput placeholder=\"Wrong Guess 3\">\r\n      </mat-form-field>\r\n    </form>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n      <button mat-button *ngIf=\"question.id\" (click)=\"api.putQuestion(question)\">EDIT</button>\r\n      <button mat-button *ngIf=\"question.id\" (click)=\"question = {}\">NEW</button>\r\n      <button mat-button *ngIf=\"!question.id\" (click)=\"post(question)\">POST</button>  \r\n  </mat-card-actions>\r\n</mat-card>\r\n<questions></questions>\r\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n  <mat-card-title>\r\n    <span *ngIf=\"question.id\">Edit Question</span>\r\n    <span *ngIf=\"!question.id\">New Question</span>\r\n  </mat-card-title>\r\n  <mat-card-content>\r\n    <form>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.text\" name=\"question\" matInput placeholder=\"Question\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.correctAnswer\" name=\"correctAnswer\" matInput placeholder=\" Correct Guess\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.answer1\" name=\"answer1\" matInput placeholder=\"Wrong Guess 1\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.answer2\" name=\"answer2\" matInput placeholder=\"Wrong Guess 2\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.answer3\" name=\"answer3\" matInput placeholder=\"Wrong Guess 3\">\r\n      </mat-form-field>\r\n    </form>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n      <button mat-button *ngIf=\"question.id\" (click)=\"api.putQuestion(question)\">EDIT</button>\r\n      <button mat-button *ngIf=\"question.id\" (click)=\"question = {}\">NEW</button>\r\n      <button mat-button *ngIf=\"!question.id\" (click)=\"post(question)\">POST</button>   \r\n  </mat-card-actions>\r\n</mat-card>\r\n<questions></questions>\r\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/questions.component.html": 
@@ -83,7 +110,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n        <mat-card-title>\r\n          <span *ngIf=\"quiz.id\">Edit Game</span>\r\n          <span *ngIf=\"!quiz.id\">New Game</span>\r\n        </mat-card-title>\r\n        <mat-card-content>\r\n          <form>\r\n            <mat-form-field class=\"fullWidth\">\r\n              <input [(ngModel)]=\"quiz.title\" name=\"title\" matInput placeholder=\"Name of the game\">\r\n            </mat-form-field>\r\n\r\n          </form>\r\n        </mat-card-content>\r\n        <mat-card-actions>\r\n            <button mat-button *ngIf=\"quiz.id\" (click)=\"api.putQuiz(quiz)\">EDIT</button>\r\n            <button mat-button *ngIf=\"quiz.id\" (click)=\"quiz = {}\">NEW</button>\r\n            <button mat-button *ngIf=\"quiz.id\" [routerLink]=\"['/question', quiz.id]\">EDIT QUESTIONS</button>\r\n            <button mat-button *ngIf=\"!quiz.id\" (click)=\"api.postQuiz(quiz)\">POST</button>  \r\n        </mat-card-actions>\r\n      </mat-card>\r\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n        <mat-card-title>\r\n          <span *ngIf=\"quiz.id\">Edit Game</span>\r\n          <span *ngIf=\"!quiz.id\">New Game</span>\r\n        </mat-card-title>\r\n        <mat-card-content>\r\n          <form>\r\n            <mat-form-field class=\"fullWidth\">\r\n              <input [(ngModel)]=\"quiz.title\" name=\"title\" matInput placeholder=\"Name of the game\">\r\n            </mat-form-field>\r\n\r\n          </form>\r\n        </mat-card-content>\r\n        <mat-card-actions>\r\n            <button mat-button *ngIf=\"quiz.id\" (click)=\"api.putQuiz(quiz)\">EDIT</button>\r\n            <button mat-button *ngIf=\"quiz.id\" (click)=\"quiz = {}\">NEW</button>\r\n            <button mat-button *ngIf=\"quiz.id\" [routerLink]=\"['/question', quiz.id]\">EDIT QUESTIONS</button>\r\n            <button mat-button *ngIf=\"!quiz.id\" (click)=\"api.postQuiz(quiz)\">POST</button>\r\n            <!-- <button mat-button *ngIf=\"quiz.id\" (click)=\"api.deleteQuiz(quiz)\">DELETE</button> -->\r\n        </mat-card-actions>\r\n      </mat-card>\r\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/quizzes.component.html": 
@@ -430,32 +457,38 @@
                     this.quizSelected = this.selectedQuiz.asObservable();
                 }
                 ApiService.prototype.getQuestions = function (quizId) {
-                    return this.http.get("https://localhost:44351/api/questions/" + quizId);
+                    return this.http.get("https://guessinggame20191216110748.azurewebsites.net/api/questions/" + quizId);
                 };
+                //https://localhost:44351
                 ApiService.prototype.getQuizzes = function () {
-                    return this.http.get('https://localhost:44351/api/quizzes');
+                    return this.http.get('https://guessinggame20191216110748.azurewebsites.net/api/quizzes');
                 };
                 ApiService.prototype.getAllQuizzes = function () {
-                    return this.http.get('https://localhost:44351/api/quizzes/all');
+                    return this.http.get('https://guessinggame20191216110748.azurewebsites.net/api/quizzes/all');
                 };
                 ApiService.prototype.postQuestion = function (question) {
-                    this.http.post('https://localhost:44351/api/questions', question).subscribe(function (res) {
+                    this.http.post('https://guessinggame20191216110748.azurewebsites.net/api/questions', question).subscribe(function (res) {
                         console.log(res);
                         //window.location.reload(true);
                     });
                 };
                 ApiService.prototype.putQuestion = function (question) {
-                    this.http.put("https://localhost:44351/api/questions/" + question.id, question).subscribe(function (res) {
+                    this.http.put("https://guessinggame20191216110748.azurewebsites.net/api/questions/" + question.id, question).subscribe(function (res) {
                         console.log(res);
                     });
                 };
                 ApiService.prototype.postQuiz = function (quiz) {
-                    this.http.post('https://localhost:44351/api/quizzes', quiz).subscribe(function (res) {
+                    this.http.post('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', quiz).subscribe(function (res) {
                         console.log(res);
                     });
                 };
                 ApiService.prototype.putQuiz = function (quiz) {
-                    this.http.put("https://localhost:44351/api/quizzes/" + quiz.id, quiz).subscribe(function (res) {
+                    this.http.put("https://guessinggame20191216110748.azurewebsites.net/api/quizzes/" + quiz.id, quiz).subscribe(function (res) {
+                        console.log(res);
+                    });
+                };
+                ApiService.prototype.deleteQuiz = function (quiz) {
+                    this.http.delete('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', quiz).subscribe(function (res) {
                         console.log(res);
                     });
                 };
@@ -514,14 +547,13 @@
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             var AppComponent = /** @class */ (function () {
                 function AppComponent() {
-                    this.title = 'my frontend';
                 }
                 return AppComponent;
             }());
             AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
                     selector: 'app-root',
-                    template: '<nav></nav><router-outlet></router-outlet>'
+                    template: "<nav></nav><router-outlet></router-outlet>"
                 })
             ], AppComponent);
             //Router-outlet let's angular know where to render the view you are trying to route to
@@ -567,6 +599,9 @@
             /* harmony import */ var _play_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./play.component */ "./src/app/play.component.ts");
             /* harmony import */ var _playQuiz_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./playQuiz.component */ "./src/app/playQuiz.component.ts");
             /* harmony import */ var _finished_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./finished.component */ "./src/app/finished.component.ts");
+            /* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @okta/okta-angular */ "./node_modules/@okta/okta-angular/dist/src/index.js");
+            /* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/ __webpack_require__.n(_okta_okta_angular__WEBPACK_IMPORTED_MODULE_31__);
+            /* harmony import */ var _profile_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./profile.component */ "./src/app/profile.component.ts");
             //Creating routes in angular - URL routes
             var routes = [
                 { path: '', component: _home_component__WEBPACK_IMPORTED_MODULE_20__["HomeComponent"] },
@@ -576,8 +611,17 @@
                 { path: 'login', component: _login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"] },
                 { path: 'quiz', component: _quiz_component__WEBPACK_IMPORTED_MODULE_22__["QuizComponent"] },
                 { path: 'play', component: _play_component__WEBPACK_IMPORTED_MODULE_28__["PlayComponent"] },
-                { path: 'playQuiz/:quizId', component: _playQuiz_component__WEBPACK_IMPORTED_MODULE_29__["PlayQuizComponent"] }
+                { path: 'playQuiz/:quizId', component: _playQuiz_component__WEBPACK_IMPORTED_MODULE_29__["PlayQuizComponent"] },
+                { path: 'implicit/callback', component: _okta_okta_angular__WEBPACK_IMPORTED_MODULE_31__["OktaCallbackComponent"] },
+                { path: 'profile', component: _profile_component__WEBPACK_IMPORTED_MODULE_32__["ProfileComponent"] }
             ];
+            var config = {
+                issuer: 'https://dev-504074.okta.com/oauth2/default',
+                redirectUri: 'https://myguessing-game.netlify.com/implicit/callback',
+                clientId: '0oa287p32jLLOd1ri357',
+                scopes: ['openid', 'profile', 'email'],
+                pkce: true
+            };
             var AppModule = /** @class */ (function () {
                 function AppModule() {
                 }
@@ -595,6 +639,7 @@
                         _quizzes_component__WEBPACK_IMPORTED_MODULE_23__["QuizzesComponent"],
                         _register_component__WEBPACK_IMPORTED_MODULE_24__["RegisterComponent"],
                         _login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"],
+                        _profile_component__WEBPACK_IMPORTED_MODULE_32__["ProfileComponent"],
                         _play_component__WEBPACK_IMPORTED_MODULE_28__["PlayComponent"],
                         _playQuiz_component__WEBPACK_IMPORTED_MODULE_29__["PlayQuizComponent"],
                         _finished_component__WEBPACK_IMPORTED_MODULE_30__["FinishedComponent"]
@@ -613,7 +658,8 @@
                         _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"],
                         _angular_material_expansion__WEBPACK_IMPORTED_MODULE_12__["MatExpansionModule"],
                         _angular_material_radio__WEBPACK_IMPORTED_MODULE_13__["MatRadioModule"],
-                        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialogModule"]
+                        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialogModule"],
+                        _okta_okta_angular__WEBPACK_IMPORTED_MODULE_31__["OktaAuthModule"].initAuth(config)
                     ],
                     providers: [_api_service__WEBPACK_IMPORTED_MODULE_15__["ApiService"], _auth_service__WEBPACK_IMPORTED_MODULE_26__["AuthService"], {
                             provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
@@ -683,13 +729,13 @@
                 });
                 AuthService.prototype.register = function (credentials) {
                     var _this = this;
-                    this.http.post("https://localhost:44351/api/account/", credentials).subscribe(function (res) {
+                    this.http.post("https://guessinggame20191216110748.azurewebsites.net/api/Account/", credentials).subscribe(function (res) {
                         _this.authenticate(res);
                     });
                 };
                 AuthService.prototype.login = function (credentials) {
                     var _this = this;
-                    this.http.post("https://localhost:44351/api/login/", credentials).subscribe(function (res) {
+                    this.http.post("https://guessinggame20191216110748.azurewebsites.net/api/login/", credentials).subscribe(function (res) {
                         _this.authenticate(res);
                     });
                 };
@@ -810,24 +856,58 @@
             /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavComponent", function () { return NavComponent; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            /* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
+            /* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @okta/okta-angular */ "./node_modules/@okta/okta-angular/dist/src/index.js");
+            /* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(_okta_okta_angular__WEBPACK_IMPORTED_MODULE_2__);
             var NavComponent = /** @class */ (function () {
-                //Inject with a constructor
-                function NavComponent(auth) {
-                    this.auth = auth;
+                function NavComponent(oktaAuth) {
+                    var _this = this;
+                    this.oktaAuth = oktaAuth;
+                    //Inject with a constructor
+                    this.title = 'my frontend';
+                    // Subscribe to authentication state changes
+                    this.oktaAuth.$authenticationState.subscribe(function (isAuthenticated) { return _this.isAuthenticated = isAuthenticated; });
                 }
+                NavComponent.prototype.ngOnInit = function () {
+                    return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+                        var _a;
+                        return __generator(this, function (_b) {
+                            switch (_b.label) {
+                                case 0:
+                                    // Get the authentication state for immediate use
+                                    _a = this;
+                                    return [4 /*yield*/, this.oktaAuth.isAuthenticated()];
+                                case 1:
+                                    // Get the authentication state for immediate use
+                                    _a.isAuthenticated = _b.sent();
+                                    return [2 /*return*/];
+                            }
+                        });
+                    });
+                };
+                NavComponent.prototype.login = function () {
+                    this.oktaAuth.loginRedirect('/profile');
+                };
+                NavComponent.prototype.logout = function () {
+                    this.oktaAuth.logout('/');
+                };
                 return NavComponent;
             }());
             NavComponent.ctorParameters = function () { return [
-                { type: _auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] }
+                { type: _okta_okta_angular__WEBPACK_IMPORTED_MODULE_2__["OktaAuthService"] }
             ]; };
             NavComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
                     selector: 'nav',
-                    template: "\n  <mat-toolbar>\n    <button mat-button routerLink=\"/\">My Games</button>\n    <button mat-button routerLink=\"/play\">Play</button>\n    <span style=\"flex: 1 1 auto;\"></span>\n    <button *ngIf=\"!auth.isAuthenticated\" mat-button routerLink=\"/register\">Register</button>\n    <button *ngIf=\"!auth.isAuthenticated\" mat-button routerLink=\"/login\">Login</button>\n    <button *ngIf=\"auth.isAuthenticated\" mat-button (click)=\"auth.logout()\">Logout</button>\n  </mat-toolbar>\n  "
+                    template: "\n  <mat-toolbar>\n    <button mat-button routerLink=\"/\">My Games</button>\n    <button mat-button routerLink=\"/play\">Play</button>\n    <span style=\"flex: 1 1 auto;\"></span>\n    <button mat-button *ngIf=\"!isAuthenticated\" (click)=\"login()\"> Login </button>\n    <button mat-buttonn *ngIf=\"isAuthenticated\" (click)=\"logout()\"> Logout </button>\n  </mat-toolbar>\n  "
                 })
             ], NavComponent);
             //Router-outlet let's angular know where to render the view you are trying to route to
+            // <span style="flex: 1 1 auto;"></span>
+            // <button *ngIf="!isAuthenticated" (click)="login()"> Login </button>
+            // <button *ngIf="isAuthenticated" (click)="logout()"> Logout </button>
+            // <button *ngIf="!auth.isAuthenticated" mat-button routerLink="/register">Register</button>
+            // <button *ngIf="!auth.isAuthenticated" mat-button routerLink="/login">Login</button>
+            // <button *ngIf="auth.isAuthenticated" mat-button (click)="auth.logout()">Logout</button>
             /***/ 
         }),
         /***/ "./src/app/play.component.ts": 
@@ -942,6 +1022,50 @@
             }
             /***/ 
         }),
+        /***/ "./src/app/profile.component.ts": 
+        /*!**************************************!*\
+          !*** ./src/app/profile.component.ts ***!
+          \**************************************/
+        /*! exports provided: ProfileComponent */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function () { return ProfileComponent; });
+            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+            /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+            /* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @okta/okta-angular */ "./node_modules/@okta/okta-angular/dist/src/index.js");
+            /* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/ __webpack_require__.n(_okta_okta_angular__WEBPACK_IMPORTED_MODULE_2__);
+            var ProfileComponent = /** @class */ (function () {
+                function ProfileComponent(oktaAuth) {
+                    this.oktaAuth = oktaAuth;
+                }
+                ProfileComponent.prototype.ngOnInit = function () {
+                    return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+                        var userClaims;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0: return [4 /*yield*/, this.oktaAuth.getUser()];
+                                case 1:
+                                    userClaims = _a.sent();
+                                    // user name is exposed directly as property
+                                    this.userName = userClaims.name;
+                                    return [2 /*return*/];
+                            }
+                        });
+                    });
+                };
+                return ProfileComponent;
+            }());
+            ProfileComponent.ctorParameters = function () { return [
+                { type: _okta_okta_angular__WEBPACK_IMPORTED_MODULE_2__["OktaAuthService"] }
+            ]; };
+            ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+                    template: 'Welcome back, {{ userName }}'
+                })
+            ], ProfileComponent);
+            /***/ 
+        }),
         /***/ "./src/app/question.component.ts": 
         /*!***************************************!*\
           !*** ./src/app/question.component.ts ***!
@@ -970,6 +1094,7 @@
                 QuestionComponent.prototype.post = function (question) {
                     question.quizId = this.quizId;
                     this.api.postQuestion(question);
+                    //this.question="";
                     window.location.reload(true);
                     //this.arrayQ.push(question);
                 };

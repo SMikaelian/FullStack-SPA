@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n    <mat-card-content>\r\n        \r\n        <mat-accordion>\r\n            <mat-expansion-panel *ngFor=\"let question of questions; \r\n                let i = index\" [expanded]=\"step === i\" (opened)=\"setStep(i)\">\r\n              <mat-expansion-panel-header>\r\n                <mat-panel-title>\r\n                    {{question.text}}\r\n                </mat-panel-title>\r\n                <mat-panel-description>\r\n                  \r\n                </mat-panel-description>\r\n              </mat-expansion-panel-header>\r\n\r\n              <mat-radio-group \r\n              aria-labelledby=\"example-radio-group-label\"\r\n              [(ngModel)]=\"question.selectedAnswer\">\r\n              <mat-radio-button class=\"fullWidth\" *ngFor=\"let answer of question.answers\" [value]=\"answer\">\r\n                  {{answer}}\r\n              </mat-radio-button>\r\n\r\n              </mat-radio-group>\r\n              <mat-action-row>\r\n                <button mat-button color=\"primary\" (click)=\"nextStep()\">Next</button>\r\n              </mat-action-row>\r\n            </mat-expansion-panel>\r\n          </mat-accordion>\r\n          \r\n    </mat-card-content>\r\n    <mat-card-actions>\r\n            <button mat-button color=\"primary\" (click)=\"finish()\">Next</button>\r\n    </mat-card-actions>\r\n</mat-card>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n    <mat-card-content>\r\n        \r\n        <mat-accordion>\r\n            <mat-expansion-panel *ngFor=\"let question of questions; \r\n                let i = index\" [expanded]=\"step === i\" (opened)=\"setStep(i)\">\r\n              <mat-expansion-panel-header>\r\n                <mat-panel-title>\r\n                    {{question.text}}\r\n                </mat-panel-title>\r\n                <mat-panel-description>\r\n                  \r\n                </mat-panel-description>\r\n              </mat-expansion-panel-header>\r\n\r\n              <mat-radio-group \r\n              aria-labelledby=\"example-radio-group-label\"\r\n              [(ngModel)]=\"question.selectedAnswer\">\r\n              <mat-radio-button class=\"fullWidth\" *ngFor=\"let answer of question.answers\" [value]=\"answer\">\r\n                  {{answer}}\r\n              </mat-radio-button>\r\n\r\n              </mat-radio-group>\r\n              <mat-action-row>\r\n                <button mat-button color=\"primary\" (click)=\"nextStep()\">Next</button>\r\n              </mat-action-row>\r\n            </mat-expansion-panel>\r\n          </mat-accordion>\r\n          \r\n    </mat-card-content>\r\n    <mat-card-actions>\r\n            <button mat-button color=\"primary\" (click)=\"finish()\">Finish</button>\r\n    </mat-card-actions>\r\n</mat-card>\r\n");
 
 /***/ }),
 
@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n  <mat-card-title>\r\n    <span *ngIf=\"question.id\">Edit Question</span>\r\n    <span *ngIf=\"!question.id\">New Question</span>\r\n  </mat-card-title>\r\n  <mat-card-content>\r\n    <form>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.text\" name=\"question\" matInput placeholder=\"Question\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.correctAnswer\" name=\"correctAnswer\" matInput placeholder=\" Correct Guess\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.answer1\" name=\"answer1\" matInput placeholder=\"Wrong Guess 1\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.answer2\" name=\"answer2\" matInput placeholder=\"Wrong Guess 2\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.answer3\" name=\"answer3\" matInput placeholder=\"Wrong Guess 3\">\r\n      </mat-form-field>\r\n    </form>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n      <button mat-button *ngIf=\"question.id\" (click)=\"api.putQuestion(question)\">EDIT</button>\r\n      <button mat-button *ngIf=\"question.id\" (click)=\"question = {}\">NEW</button>\r\n      <button mat-button *ngIf=\"!question.id\" (click)=\"post(question)\">POST</button>  \r\n  </mat-card-actions>\r\n</mat-card>\r\n<questions></questions>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n  <mat-card-title>\r\n    <span *ngIf=\"question.id\">Edit Question</span>\r\n    <span *ngIf=\"!question.id\">New Question</span>\r\n  </mat-card-title>\r\n  <mat-card-content>\r\n    <form>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.text\" name=\"question\" matInput placeholder=\"Question\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.correctAnswer\" name=\"correctAnswer\" matInput placeholder=\" Correct Guess\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.answer1\" name=\"answer1\" matInput placeholder=\"Wrong Guess 1\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.answer2\" name=\"answer2\" matInput placeholder=\"Wrong Guess 2\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"fullWidth\">\r\n        <input [(ngModel)]=\"question.answer3\" name=\"answer3\" matInput placeholder=\"Wrong Guess 3\">\r\n      </mat-form-field>\r\n    </form>\r\n  </mat-card-content>\r\n  <mat-card-actions>\r\n      <button mat-button *ngIf=\"question.id\" (click)=\"api.putQuestion(question)\">EDIT</button>\r\n      <button mat-button *ngIf=\"question.id\" (click)=\"question = {}\">NEW</button>\r\n      <button mat-button *ngIf=\"!question.id\" (click)=\"post(question)\">POST</button>   \r\n  </mat-card-actions>\r\n</mat-card>\r\n<questions></questions>\r\n");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n        <mat-card-title>\r\n          <span *ngIf=\"quiz.id\">Edit Game</span>\r\n          <span *ngIf=\"!quiz.id\">New Game</span>\r\n        </mat-card-title>\r\n        <mat-card-content>\r\n          <form>\r\n            <mat-form-field class=\"fullWidth\">\r\n              <input [(ngModel)]=\"quiz.title\" name=\"title\" matInput placeholder=\"Name of the game\">\r\n            </mat-form-field>\r\n\r\n          </form>\r\n        </mat-card-content>\r\n        <mat-card-actions>\r\n            <button mat-button *ngIf=\"quiz.id\" (click)=\"api.putQuiz(quiz)\">EDIT</button>\r\n            <button mat-button *ngIf=\"quiz.id\" (click)=\"quiz = {}\">NEW</button>\r\n            <button mat-button *ngIf=\"quiz.id\" [routerLink]=\"['/question', quiz.id]\">EDIT QUESTIONS</button>\r\n            <button mat-button *ngIf=\"!quiz.id\" (click)=\"api.postQuiz(quiz)\">POST</button>  \r\n        </mat-card-actions>\r\n      </mat-card>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n        <mat-card-title>\r\n          <span *ngIf=\"quiz.id\">Edit Game</span>\r\n          <span *ngIf=\"!quiz.id\">New Game</span>\r\n        </mat-card-title>\r\n        <mat-card-content>\r\n          <form>\r\n            <mat-form-field class=\"fullWidth\">\r\n              <input [(ngModel)]=\"quiz.title\" name=\"title\" matInput placeholder=\"Name of the game\">\r\n            </mat-form-field>\r\n\r\n          </form>\r\n        </mat-card-content>\r\n        <mat-card-actions>\r\n            <button mat-button *ngIf=\"quiz.id\" (click)=\"api.putQuiz(quiz)\">EDIT</button>\r\n            <button mat-button *ngIf=\"quiz.id\" (click)=\"quiz = {}\">NEW</button>\r\n            <button mat-button *ngIf=\"quiz.id\" [routerLink]=\"['/question', quiz.id]\">EDIT QUESTIONS</button>\r\n            <button mat-button *ngIf=\"!quiz.id\" (click)=\"api.postQuiz(quiz)\">POST</button>\r\n            <!-- <button mat-button *ngIf=\"quiz.id\" (click)=\"api.deleteQuiz(quiz)\">DELETE</button> -->\r\n        </mat-card-actions>\r\n      </mat-card>\r\n");
 
 /***/ }),
 
@@ -383,32 +383,38 @@ let ApiService = class ApiService {
         this.quizSelected = this.selectedQuiz.asObservable();
     }
     getQuestions(quizId) {
-        return this.http.get(`https://localhost:44351/api/questions/${quizId}`);
+        return this.http.get(`https://guessinggame20191216110748.azurewebsites.net/api/questions/${quizId}`);
     }
+    //https://localhost:44351
     getQuizzes() {
-        return this.http.get('https://localhost:44351/api/quizzes');
+        return this.http.get('https://guessinggame20191216110748.azurewebsites.net/api/quizzes');
     }
     getAllQuizzes() {
-        return this.http.get('https://localhost:44351/api/quizzes/all');
+        return this.http.get('https://guessinggame20191216110748.azurewebsites.net/api/quizzes/all');
     }
     postQuestion(question) {
-        this.http.post('https://localhost:44351/api/questions', question).subscribe(res => {
+        this.http.post('https://guessinggame20191216110748.azurewebsites.net/api/questions', question).subscribe(res => {
             console.log(res);
             //window.location.reload(true);
         });
     }
     putQuestion(question) {
-        this.http.put(`https://localhost:44351/api/questions/${question.id}`, question).subscribe(res => {
+        this.http.put(`https://guessinggame20191216110748.azurewebsites.net/api/questions/${question.id}`, question).subscribe(res => {
             console.log(res);
         });
     }
     postQuiz(quiz) {
-        this.http.post('https://localhost:44351/api/quizzes', quiz).subscribe(res => {
+        this.http.post('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', quiz).subscribe(res => {
             console.log(res);
         });
     }
     putQuiz(quiz) {
-        this.http.put(`https://localhost:44351/api/quizzes/${quiz.id}`, quiz).subscribe(res => {
+        this.http.put(`https://guessinggame20191216110748.azurewebsites.net/api/quizzes/${quiz.id}`, quiz).subscribe(res => {
+            console.log(res);
+        });
+    }
+    deleteQuiz(quiz) {
+        this.http.delete('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', quiz).subscribe(res => {
             console.log(res);
         });
     }
@@ -475,14 +481,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AppComponent = class AppComponent {
-    constructor() {
-        this.title = 'my frontend';
-    }
 };
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-root',
-        template: '<nav></nav><router-outlet></router-outlet>'
+        template: `<nav></nav><router-outlet></router-outlet>`
     })
 ], AppComponent);
 
@@ -532,6 +535,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _play_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./play.component */ "./src/app/play.component.ts");
 /* harmony import */ var _playQuiz_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./playQuiz.component */ "./src/app/playQuiz.component.ts");
 /* harmony import */ var _finished_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./finished.component */ "./src/app/finished.component.ts");
+/* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @okta/okta-angular */ "./node_modules/@okta/okta-angular/dist/src/index.js");
+/* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(_okta_okta_angular__WEBPACK_IMPORTED_MODULE_31__);
+/* harmony import */ var _profile_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./profile.component */ "./src/app/profile.component.ts");
+
+
 
 
 
@@ -572,8 +580,17 @@ const routes = [
     { path: 'login', component: _login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"] },
     { path: 'quiz', component: _quiz_component__WEBPACK_IMPORTED_MODULE_22__["QuizComponent"] },
     { path: 'play', component: _play_component__WEBPACK_IMPORTED_MODULE_28__["PlayComponent"] },
-    { path: 'playQuiz/:quizId', component: _playQuiz_component__WEBPACK_IMPORTED_MODULE_29__["PlayQuizComponent"] }
+    { path: 'playQuiz/:quizId', component: _playQuiz_component__WEBPACK_IMPORTED_MODULE_29__["PlayQuizComponent"] },
+    { path: 'implicit/callback', component: _okta_okta_angular__WEBPACK_IMPORTED_MODULE_31__["OktaCallbackComponent"] },
+    { path: 'profile', component: _profile_component__WEBPACK_IMPORTED_MODULE_32__["ProfileComponent"] }
 ];
+const config = {
+    issuer: 'https://dev-504074.okta.com/oauth2/default',
+    redirectUri: 'https://myguessing-game.netlify.com/implicit/callback',
+    clientId: '0oa287p32jLLOd1ri357',
+    scopes: ['openid', 'profile', 'email'],
+    pkce: true
+};
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -588,6 +605,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _quizzes_component__WEBPACK_IMPORTED_MODULE_23__["QuizzesComponent"],
             _register_component__WEBPACK_IMPORTED_MODULE_24__["RegisterComponent"],
             _login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"],
+            _profile_component__WEBPACK_IMPORTED_MODULE_32__["ProfileComponent"],
             _play_component__WEBPACK_IMPORTED_MODULE_28__["PlayComponent"],
             _playQuiz_component__WEBPACK_IMPORTED_MODULE_29__["PlayQuizComponent"],
             _finished_component__WEBPACK_IMPORTED_MODULE_30__["FinishedComponent"]
@@ -606,7 +624,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"],
             _angular_material_expansion__WEBPACK_IMPORTED_MODULE_12__["MatExpansionModule"],
             _angular_material_radio__WEBPACK_IMPORTED_MODULE_13__["MatRadioModule"],
-            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialogModule"]
+            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialogModule"],
+            _okta_okta_angular__WEBPACK_IMPORTED_MODULE_31__["OktaAuthModule"].initAuth(config)
         ],
         providers: [_api_service__WEBPACK_IMPORTED_MODULE_15__["ApiService"], _auth_service__WEBPACK_IMPORTED_MODULE_26__["AuthService"], {
                 provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
@@ -683,12 +702,12 @@ let AuthService = class AuthService {
         return !!localStorage.getItem('token'); //will return true if it does exist since !!
     }
     register(credentials) {
-        this.http.post(`https://localhost:44351/api/account/`, credentials).subscribe(res => {
+        this.http.post(`https://guessinggame20191216110748.azurewebsites.net/api/Account/`, credentials).subscribe(res => {
             this.authenticate(res);
         });
     }
     login(credentials) {
-        this.http.post(`https://localhost:44351/api/login/`, credentials).subscribe(res => {
+        this.http.post(`https://guessinggame20191216110748.azurewebsites.net/api/login/`, credentials).subscribe(res => {
             this.authenticate(res);
         });
     }
@@ -832,18 +851,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavComponent", function() { return NavComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
+/* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @okta/okta-angular */ "./node_modules/@okta/okta-angular/dist/src/index.js");
+/* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_okta_okta_angular__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
 let NavComponent = class NavComponent {
-    //Inject with a constructor
-    constructor(auth) {
-        this.auth = auth;
+    constructor(oktaAuth) {
+        this.oktaAuth = oktaAuth;
+        //Inject with a constructor
+        this.title = 'my frontend';
+        // Subscribe to authentication state changes
+        this.oktaAuth.$authenticationState.subscribe((isAuthenticated) => this.isAuthenticated = isAuthenticated);
+    }
+    ngOnInit() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            // Get the authentication state for immediate use
+            this.isAuthenticated = yield this.oktaAuth.isAuthenticated();
+        });
+    }
+    login() {
+        this.oktaAuth.loginRedirect('/profile');
+    }
+    logout() {
+        this.oktaAuth.logout('/');
     }
 };
 NavComponent.ctorParameters = () => [
-    { type: _auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] }
+    { type: _okta_okta_angular__WEBPACK_IMPORTED_MODULE_2__["OktaAuthService"] }
 ];
 NavComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -853,15 +888,20 @@ NavComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     <button mat-button routerLink="/">My Games</button>
     <button mat-button routerLink="/play">Play</button>
     <span style="flex: 1 1 auto;"></span>
-    <button *ngIf="!auth.isAuthenticated" mat-button routerLink="/register">Register</button>
-    <button *ngIf="!auth.isAuthenticated" mat-button routerLink="/login">Login</button>
-    <button *ngIf="auth.isAuthenticated" mat-button (click)="auth.logout()">Logout</button>
+    <button mat-button *ngIf="!isAuthenticated" (click)="login()"> Login </button>
+    <button mat-buttonn *ngIf="isAuthenticated" (click)="logout()"> Logout </button>
   </mat-toolbar>
   `
     })
 ], NavComponent);
 
 //Router-outlet let's angular know where to render the view you are trying to route to
+// <span style="flex: 1 1 auto;"></span>
+// <button *ngIf="!isAuthenticated" (click)="login()"> Login </button>
+// <button *ngIf="isAuthenticated" (click)="logout()"> Logout </button>
+// <button *ngIf="!auth.isAuthenticated" mat-button routerLink="/register">Register</button>
+// <button *ngIf="!auth.isAuthenticated" mat-button routerLink="/login">Login</button>
+// <button *ngIf="auth.isAuthenticated" mat-button (click)="auth.logout()">Logout</button>
 
 
 /***/ }),
@@ -990,6 +1030,49 @@ function shuffle(a) {
 
 /***/ }),
 
+/***/ "./src/app/profile.component.ts":
+/*!**************************************!*\
+  !*** ./src/app/profile.component.ts ***!
+  \**************************************/
+/*! exports provided: ProfileComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function() { return ProfileComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @okta/okta-angular */ "./node_modules/@okta/okta-angular/dist/src/index.js");
+/* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_okta_okta_angular__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+let ProfileComponent = class ProfileComponent {
+    constructor(oktaAuth) {
+        this.oktaAuth = oktaAuth;
+    }
+    ngOnInit() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            // returns an array of claims
+            const userClaims = yield this.oktaAuth.getUser();
+            // user name is exposed directly as property
+            this.userName = userClaims.name;
+        });
+    }
+};
+ProfileComponent.ctorParameters = () => [
+    { type: _okta_okta_angular__WEBPACK_IMPORTED_MODULE_2__["OktaAuthService"] }
+];
+ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        template: 'Welcome back, {{ userName }}'
+    })
+], ProfileComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/question.component.ts":
 /*!***************************************!*\
   !*** ./src/app/question.component.ts ***!
@@ -1022,6 +1105,7 @@ let QuestionComponent = class QuestionComponent {
     post(question) {
         question.quizId = this.quizId;
         this.api.postQuestion(question);
+        //this.question="";
         window.location.reload(true);
         //this.arrayQ.push(question);
     }
