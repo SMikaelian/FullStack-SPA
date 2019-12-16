@@ -33,7 +33,7 @@ import {OktaAuthModule, OktaCallbackComponent, OktaAuthGuard} from '@okta/okta-a
 import { ProfileComponent } from './profile.component';
 
 
-
+//, canActivate:[OktaAuthGuard] 
 //Creating routes in angular - URL routes
 const routes = [
   { path: '', component: HomeComponent},
@@ -42,7 +42,7 @@ const routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'quiz', component: QuizComponent },
-  { path: 'play', component: PlayComponent, canActivate:[OktaAuthGuard] },
+  { path: 'play', component: PlayComponent},
   { path: 'playQuiz/:quizId', component: PlayQuizComponent },
   { path: 'implicit/callback', component: OktaCallbackComponent},
   { path: 'myProfile', component: ProfileComponent}
