@@ -29,7 +29,7 @@ import {AuthInterceptor} from './auth.interceptor'
 import { PlayComponent} from './play.component'
 import{ PlayQuizComponent} from './playQuiz.component'
 import {FinishedComponent} from './finished.component'
-import {OktaAuthModule, OktaCallbackComponent} from '@okta/okta-angular';
+import {OktaAuthModule, OktaCallbackComponent, OktaAuthGuard} from '@okta/okta-angular';
 import { ProfileComponent } from './profile.component';
 
 
@@ -42,7 +42,7 @@ const routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'quiz', component: QuizComponent },
-  { path: 'play', component: PlayComponent },
+  { path: 'play', component: PlayComponent, canActivate:[OktaAuthGuard] },
   { path: 'playQuiz/:quizId', component: PlayQuizComponent },
   { path: 'implicit/callback', component: OktaCallbackComponent},
   { path: 'myProfile', component: ProfileComponent}
