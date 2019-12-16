@@ -51,7 +51,7 @@ const routes = [
 const config = {
   issuer: 'https://dev-504074.okta.com/oauth2/default',
   redirectUri: 'http://localhost:4200/implicit/callback',
-  clientId: '0oa27w72fbiYSmZWv357',
+  clientId: '0oa287p32jLLOd1ri357',
   scopes: ['openid', 'profile', 'email'],
   pkce: true
 }
