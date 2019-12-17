@@ -29,7 +29,7 @@ Angular is utilized for the view portion of the MVC.
 The project is done in Visual Studio 2019 and ASP.NET Core is utilized to create an MVC Application with Models, and Controllers.
 
 ## ORM 
-The project is utilizing Entity Framework for Object Relational Mapping, it can be found in the QuizContext where there is a section indicating the foreign and primary key relationships for the Model's elements.
+The project is utilizing Entity Framework for Object Relational Mapping, I used a SQL database (Azure DB) ran migrations. It can be found in the QuizContext.cs where there is a section indicating the foreign and primary key relationships for the Model's elements.
 
 ## Dependency Injections
 Dependency Injections is being done by default in Angular and ASP.NET Core, it can be found throughout the code.
