@@ -11,8 +11,8 @@ GuessingGame is a Single Page Application that lets you create games, and quizze
 
 # How to use:
 - Sign in to Okta with the dummy account:
-Username: 
-Password: 
+Username: testing@myguessinggame.com
+Password: G123456789g
 OR Register using okta by pressing the login and signing up with Okta.
 
 - Start Playing existing games by going to the Play tab and selecting your guesses. The application will display the user's score after they hit the Finish button.
@@ -29,7 +29,7 @@ Angular is utilized for the view portion of the MVC.
 The project is done in Visual Studio 2019 and ASP.NET Core is utilized to create an MVC Application with Models, and Controllers.
 
 ## ORM 
-The project is utilizing Entity Framework for Object Relational Mapping, I used a SQL database (Azure DB) ran migrations. It can be found in the QuizContext.cs where there is a section indicating the foreign and primary key relationships for the Model's elements.
+The project is utilizing Entity Framework for Object Relational Mapping, I used a SQL database (Azure DB) ran migrations. It can be found in the GameContext.cs where there is a section indicating the foreign and primary key relationships for the Model's elements.
 
 ## Dependency Injections
 Dependency Injections is being done by default in Angular and ASP.NET Core, it can be found throughout the code.
