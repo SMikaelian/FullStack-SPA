@@ -5,9 +5,10 @@ import { OktaAuthService } from '@okta/okta-angular';
 @Component({
   selector: 'nav',
   template: `
-  <mat-toolbar>
+  <mat-toolbar color="primary">
     <button mat-button routerLink="/">My Games</button>
-    <button mat-button routerLink="/play">Play</button>
+	<span style="flex: 1 1 auto;"></span>
+    <button mat-fab color="primary" routerLink="/play">Play</button>
     <span style="flex: 1 1 auto;"></span>
     <button mat-button *ngIf="!isAuthenticated" (click)="login()"> Login </button>
     <button mat-buttonn *ngIf="isAuthenticated" (click)="logout()"> Logout </button>
