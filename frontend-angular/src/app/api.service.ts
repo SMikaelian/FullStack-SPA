@@ -9,13 +9,13 @@ export class ApiService
     private selectedQuestion = new Subject<any>(); //selectedQ. property will hold reference to the question we clicked on and select it.
     questionSelected= this.selectedQuestion.asObservable();
 
-    private selectedQuiz = new Subject<any>(); //selectedQ. property will hold reference to the question we clicked on and select it.
-    quizSelected= this.selectedQuiz.asObservable();
+    private selectedGame = new Subject<any>(); //selectedQ. property will hold reference to the question we clicked on and select it.
+    gameSelected= this.selectedGame.asObservable();
     
     constructor(private http: HttpClient) {}
     
-    getQuestions(quizId) {
-        return this.http.get(`https://guessinggame20191216110748.azurewebsites.net/api/questions/${quizId}`);
+    getQuestions(gameId) {
+        return this.http.get(`https://guessinggame20191216110748.azurewebsites.net/api/questions/${gameId}`);
         }
         //https://localhost:44351
     getGames() {
@@ -39,21 +39,21 @@ export class ApiService
             console.log(res)
         })
     }
-    postQuiz(quiz) {
-        this.http.post('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', quiz).subscribe(res => {
+    postGame(game) {
+        this.http.post('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', game).subscribe(res => {
             console.log(res)
         })
     }
-    putQuiz(quiz)
+    putGame(game)
     {
-        this.http.put(`https://guessinggame20191216110748.azurewebsites.net/api/quizzes/${quiz.id}`, quiz).subscribe(res => {
+        this.http.put(`https://guessinggame20191216110748.azurewebsites.net/api/quizzes/${game.id}`, game).subscribe(res => {
             console.log(res)
         })
     }
     
-    deleteQuiz(quiz)
+    deleteGame(game)
     {
-        this.http.delete('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', quiz).subscribe(res => {
+        this.http.delete('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', game).subscribe(res => {
             console.log(res)
         })
     }
@@ -61,7 +61,7 @@ export class ApiService
     selectQuestion(question){ //actual function to execute it
         this.selectedQuestion.next(question)
     }
-    selectQuiz(quiz){
-        this.selectedQuiz.next(quiz)
+    selectGame(game){
+        this.selectedGame.next(game)
     }
 }

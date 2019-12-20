@@ -11,20 +11,20 @@ import {ActivatedRoute} from '@angular/router'
 export class QuestionComponent {
 
     question={}
-    quizId
+    gameId
     arrayQ=[]
 
     constructor(private api: ApiService, private route: ActivatedRoute){ //Inject route with constructor
 
     }
     ngOnInit(){ //when a question is clicked it will be notified here in subscribe and we will take that value and set it to our components property
-        this.quizId= this.route.snapshot.paramMap.get('quizId')
+        this.gameId= this.route.snapshot.paramMap.get('gameId')
 
         this.api.questionSelected.subscribe(question => this.question = question)
     }
 
     post(question) {
-        question.quizId= this.quizId
+        question.gameId= this.gameId
         this.api.postQuestion(question)
         //this.question="";
         //window.location.reload(true);

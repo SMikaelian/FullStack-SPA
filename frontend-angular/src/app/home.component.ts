@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 
 @Component({
-  template: '<quiz></quiz><games><games>'
+  template: '<game></game><games><games>'
 })
 
 export class HomeComponent {

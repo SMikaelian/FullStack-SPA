@@ -18,10 +18,10 @@ export class QuestionsComponent {
     }
     
     ngOnInit(){
-        var quizId= this.route.snapshot.paramMap.get('quizId')
+        var gameId= this.route.snapshot.paramMap.get('gameId')
 
 
-        this.api.getQuestions(quizId).subscribe(res => {
+        this.api.getQuestions(gameId).subscribe(res => {
             this.questions = res
         })
     }

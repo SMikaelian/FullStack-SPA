@@ -10,7 +10,7 @@ import { ApiService } from './api.service'
 
 export class GamesComponent {
 
-    quiz = {}
+    game = {}
     games
 
     constructor(private api: ApiService){}

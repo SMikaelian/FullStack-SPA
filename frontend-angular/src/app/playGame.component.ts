@@ -8,7 +8,7 @@ import {FinishedComponent} from './finished.component'
 })
 export class playGameComponent {
 
-    quizId
+    gameId
     questions //object for the games list
 	
 	//Inject the MatDialog in the constructor
@@ -16,9 +16,9 @@ export class playGameComponent {
 
 
     ngOnInit() { //when a question is clicked it will be notified here in subscribe and we will take that value and set it to our components property
-        this.quizId = this.route.snapshot.paramMap.get('quizId')
+        this.gameId = this.route.snapshot.paramMap.get('gameId')
 
-        this.api.getQuestions(this.quizId).subscribe(res => {
+        this.api.getQuestions(this.gameId).subscribe(res => {
             this.questions = res
 
 			//Create an orders list.

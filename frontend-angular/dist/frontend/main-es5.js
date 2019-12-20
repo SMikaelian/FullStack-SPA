@@ -66,7 +66,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n    <mat-card-content>\r\n        <mat-list *ngFor=\"let quiz of games\"> \r\n            <mat-list-item class=\"clickLink\" [routerLink]=\"['/playGame', quiz.id]\">{{quiz.title}}</mat-list-item>\r\n        </mat-list>\r\n    </mat-card-content>\r\n    <mat-card-actions> \r\n    </mat-card-actions>\r\n</mat-card>\r\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n    <mat-card-content>\r\n        <mat-list *ngFor=\"let game of games\"> \r\n            <mat-list-item class=\"clickLink\" [routerLink]=\"['/playGame', game.id]\">{{game.title}}</mat-list-item>\r\n        </mat-list>\r\n    </mat-card-content>\r\n    <mat-card-actions> \r\n    </mat-card-actions>\r\n</mat-card>\r\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/playGame.component.html": 
@@ -102,15 +102,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             /* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n    <mat-card-content>\r\n        <mat-list *ngFor=\"let question of questions\"> \r\n            <mat-list-item class=\"clickLink\" (click)=\"api.selectQuestion(question)\">{{question.text}}</mat-list-item>\r\n        </mat-list>\r\n    </mat-card-content>\r\n    <mat-card-actions> \r\n    </mat-card-actions>\r\n</mat-card>\r\n");
             /***/ 
         }),
-        /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/quiz.component.html": 
+        /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/game.component.html": 
         /*!***************************************************************************!*\
-          !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/quiz.component.html ***!
+          !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/game.component.html ***!
           \***************************************************************************/
         /*! exports provided: default */
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n        <mat-card-title>\r\n          <span *ngIf=\"quiz.id\">Edit Game</span>\r\n          <span *ngIf=\"!quiz.id\">New Game</span>\r\n        </mat-card-title>\r\n        <mat-card-content>\r\n          <form>\r\n            <mat-form-field class=\"fullWidth\">\r\n              <input [(ngModel)]=\"quiz.title\" name=\"title\" matInput placeholder=\"Name of the game\">\r\n            </mat-form-field>\r\n\r\n          </form>\r\n        </mat-card-content>\r\n        <mat-card-actions>\r\n            <button mat-button *ngIf=\"quiz.id\" (click)=\"api.putQuiz(quiz)\">EDIT</button>\r\n            <button mat-button *ngIf=\"quiz.id\" (click)=\"quiz = {}\">NEW</button>\r\n            <button mat-button *ngIf=\"quiz.id\" [routerLink]=\"['/question', quiz.id]\">EDIT QUESTIONS</button>\r\n            <button mat-button *ngIf=\"!quiz.id\" (click)=\"api.postQuiz(quiz)\">POST</button>\r\n            <!-- <button mat-button *ngIf=\"quiz.id\" (click)=\"api.deleteQuiz(quiz)\">DELETE</button> -->\r\n        </mat-card-actions>\r\n      </mat-card>\r\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n        <mat-card-title>\r\n          <span *ngIf=\"game.id\">Edit Game</span>\r\n          <span *ngIf=\"!game.id\">New Game</span>\r\n        </mat-card-title>\r\n        <mat-card-content>\r\n          <form>\r\n            <mat-form-field class=\"fullWidth\">\r\n              <input [(ngModel)]=\"game.title\" name=\"title\" matInput placeholder=\"Name of the game\">\r\n            </mat-form-field>\r\n\r\n          </form>\r\n        </mat-card-content>\r\n        <mat-card-actions>\r\n            <button mat-button *ngIf=\"game.id\" (click)=\"api.putGame(game)\">EDIT</button>\r\n            <button mat-button *ngIf=\"game.id\" (click)=\"game = {}\">NEW</button>\r\n            <button mat-button *ngIf=\"game.id\" [routerLink]=\"['/question', game.id]\">EDIT QUESTIONS</button>\r\n            <button mat-button *ngIf=\"!game.id\" (click)=\"api.postGame(game)\">POST</button>\r\n            <!-- <button mat-button *ngIf=\"game.id\" (click)=\"api.deleteGame(game)\">DELETE</button> -->\r\n        </mat-card-actions>\r\n      </mat-card>\r\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/games.component.html": 
@@ -121,7 +121,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<br>\r\n<mat-card>\r\n    <mat-card-content>\r\n        <h3>My Games:</h3>\r\n        <mat-list *ngFor=\"let quiz of games\"> \r\n            <mat-list-item class=\"clickLink\" (click)=\"api.selectQuiz(quiz)\">{{quiz.title}}</mat-list-item>\r\n        </mat-list>\r\n    </mat-card-content>\r\n    <mat-card-actions> \r\n    </mat-card-actions>\r\n</mat-card>\r\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<br>\r\n<mat-card>\r\n    <mat-card-content>\r\n        <h3>My Games:</h3>\r\n        <mat-list *ngFor=\"let game of games\"> \r\n            <mat-list-item class=\"clickLink\" (click)=\"api.selectGame(game)\">{{game.title}}</mat-list-item>\r\n        </mat-list>\r\n    </mat-card-content>\r\n    <mat-card-actions> \r\n    </mat-card-actions>\r\n</mat-card>\r\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/register.component.html": 
@@ -453,11 +453,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                     this.http = http;
                     this.selectedQuestion = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"](); //selectedQ. property will hold reference to the question we clicked on and select it.
                     this.questionSelected = this.selectedQuestion.asObservable();
-                    this.selectedQuiz = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"](); //selectedQ. property will hold reference to the question we clicked on and select it.
-                    this.quizSelected = this.selectedQuiz.asObservable();
+                    this.selectedGame = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"](); //selectedQ. property will hold reference to the question we clicked on and select it.
+                    this.gameSelected = this.selectedGame.asObservable();
                 }
-                ApiService.prototype.getQuestions = function (quizId) {
-                    return this.http.get("https://guessinggame20191216110748.azurewebsites.net/api/questions/" + quizId);
+                ApiService.prototype.getQuestions = function (gameId) {
+                    return this.http.get("https://guessinggame20191216110748.azurewebsites.net/api/questions/" + gameId);
                 };
                 //https://localhost:44351
                 ApiService.prototype.getGames = function () {
@@ -477,26 +477,26 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                         console.log(res);
                     });
                 };
-                ApiService.prototype.postQuiz = function (quiz) {
-                    this.http.post('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', quiz).subscribe(function (res) {
+                ApiService.prototype.postGame = function (game) {
+                    this.http.post('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', game).subscribe(function (res) {
                         console.log(res);
                     });
                 };
-                ApiService.prototype.putQuiz = function (quiz) {
-                    this.http.put("https://guessinggame20191216110748.azurewebsites.net/api/quizzes/" + quiz.id, quiz).subscribe(function (res) {
+                ApiService.prototype.putGame = function (game) {
+                    this.http.put("https://guessinggame20191216110748.azurewebsites.net/api/quizzes/" + game.id, game).subscribe(function (res) {
                         console.log(res);
                     });
                 };
-                ApiService.prototype.deleteQuiz = function (quiz) {
-                    this.http.delete('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', quiz).subscribe(function (res) {
+                ApiService.prototype.deleteGame = function (game) {
+                    this.http.delete('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', game).subscribe(function (res) {
                         console.log(res);
                     });
                 };
                 ApiService.prototype.selectQuestion = function (question) {
                     this.selectedQuestion.next(question);
                 };
-                ApiService.prototype.selectQuiz = function (quiz) {
-                    this.selectedQuiz.next(quiz);
+                ApiService.prototype.selectGame = function (game) {
+                    this.selectedGame.next(game);
                 };
                 return ApiService;
             }());
@@ -590,7 +590,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             /* harmony import */ var _questions_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./questions.component */ "./src/app/questions.component.ts");
             /* harmony import */ var _home_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./home.component */ "./src/app/home.component.ts");
             /* harmony import */ var _nav_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./nav.component */ "./src/app/nav.component.ts");
-            /* harmony import */ var _quiz_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./quiz.component */ "./src/app/quiz.component.ts");
+            /* harmony import */ var _game_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./game.component */ "./src/app/game.component.ts");
             /* harmony import */ var _games_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./games.component */ "./src/app/games.component.ts");
             /* harmony import */ var _register_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./register.component */ "./src/app/register.component.ts");
             /* harmony import */ var _login_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./login.component */ "./src/app/login.component.ts");
@@ -606,12 +606,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             var routes = [
                 { path: '', component: _home_component__WEBPACK_IMPORTED_MODULE_20__["HomeComponent"] },
                 { path: 'question', component: _question_component__WEBPACK_IMPORTED_MODULE_18__["QuestionComponent"] },
-                { path: 'question/:quizId', component: _question_component__WEBPACK_IMPORTED_MODULE_18__["QuestionComponent"] },
+                { path: 'question/:gameId', component: _question_component__WEBPACK_IMPORTED_MODULE_18__["QuestionComponent"] },
                 { path: 'register', component: _register_component__WEBPACK_IMPORTED_MODULE_24__["RegisterComponent"] },
                 { path: 'login', component: _login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"] },
-                { path: 'quiz', component: _quiz_component__WEBPACK_IMPORTED_MODULE_22__["QuizComponent"] },
+                { path: 'game', component: _game_component__WEBPACK_IMPORTED_MODULE_22__["GameComponent"] },
                 { path: 'play', component: _play_component__WEBPACK_IMPORTED_MODULE_28__["PlayComponent"] },
-                { path: 'playGame/:quizId', component: _playGame_component__WEBPACK_IMPORTED_MODULE_29__["playGameComponent"] },
+                { path: 'playGame/:gameId', component: _playGame_component__WEBPACK_IMPORTED_MODULE_29__["playGameComponent"] },
                 { path: 'implicit/callback', component: _okta_okta_angular__WEBPACK_IMPORTED_MODULE_31__["OktaCallbackComponent"] },
                 { path: 'profile', component: _profile_component__WEBPACK_IMPORTED_MODULE_32__["ProfileComponent"] }
             ];
@@ -635,7 +635,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                         _questions_component__WEBPACK_IMPORTED_MODULE_19__["QuestionsComponent"],
                         _home_component__WEBPACK_IMPORTED_MODULE_20__["HomeComponent"],
                         _nav_component__WEBPACK_IMPORTED_MODULE_21__["NavComponent"],
-                        _quiz_component__WEBPACK_IMPORTED_MODULE_22__["QuizComponent"],
+                        _game_component__WEBPACK_IMPORTED_MODULE_22__["GameComponent"],
                         _games_component__WEBPACK_IMPORTED_MODULE_23__["GamesComponent"],
                         _register_component__WEBPACK_IMPORTED_MODULE_24__["RegisterComponent"],
                         _login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"],
@@ -804,7 +804,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             }());
             HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-                    template: '<quiz></quiz><games><games>'
+                    template: '<game></game><games><games>'
                 })
             ], HomeComponent);
             /***/ 
@@ -970,8 +970,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                 }
                 playGameComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    this.quizId = this.route.snapshot.paramMap.get('quizId');
-                    this.api.getQuestions(this.quizId).subscribe(function (res) {
+                    this.gameId = this.route.snapshot.paramMap.get('gameId');
+                    this.api.getQuestions(this.gameId).subscribe(function (res) {
                         _this.questions = res;
                         //Create an orders list.
                         _this.questions.forEach(function (q) {
@@ -1088,11 +1088,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                 }
                 QuestionComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    this.quizId = this.route.snapshot.paramMap.get('quizId');
+                    this.gameId = this.route.snapshot.paramMap.get('gameId');
                     this.api.questionSelected.subscribe(function (question) { return _this.question = question; });
                 };
                 QuestionComponent.prototype.post = function (question) {
-                    question.quizId = this.quizId;
+                    question.gameId = this.gameId;
                     this.api.postQuestion(question);
                     //this.question="";
                     window.location.reload(true);
@@ -1133,8 +1133,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                 }
                 QuestionsComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    var quizId = this.route.snapshot.paramMap.get('quizId');
-                    this.api.getQuestions(quizId).subscribe(function (res) {
+                    var gameId = this.route.snapshot.paramMap.get('gameId');
+                    this.api.getQuestions(gameId).subscribe(function (res) {
                         _this.questions = res;
                     });
                 };
@@ -1155,38 +1155,38 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             ], QuestionsComponent);
             /***/ 
         }),
-        /***/ "./src/app/quiz.component.ts": 
+        /***/ "./src/app/game.component.ts": 
         /*!***********************************!*\
-          !*** ./src/app/quiz.component.ts ***!
+          !*** ./src/app/game.component.ts ***!
           \***********************************/
-        /*! exports provided: QuizComponent */
+        /*! exports provided: GameComponent */
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QuizComponent", function () { return QuizComponent; });
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameComponent", function () { return GameComponent; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./api.service */ "./src/app/api.service.ts");
-            var QuizComponent = /** @class */ (function () {
-                function QuizComponent(api) {
+            var GameComponent = /** @class */ (function () {
+                function GameComponent(api) {
                     this.api = api;
-                    this.quiz = {};
+                    this.game = {};
                 }
-                QuizComponent.prototype.ngOnInit = function () {
+                GameComponent.prototype.ngOnInit = function () {
                     var _this = this;
-                    this.api.quizSelected.subscribe(function (quiz) { return _this.quiz = quiz; });
+                    this.api.gameSelected.subscribe(function (game) { return _this.game = game; });
                 };
-                return QuizComponent;
+                return GameComponent;
             }());
-            QuizComponent.ctorParameters = function () { return [
+            GameComponent.ctorParameters = function () { return [
                 { type: _api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"] }
             ]; };
-            QuizComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+            GameComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-                    selector: 'quiz',
-                    template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./quiz.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/quiz.component.html")).default
+                    selector: 'game',
+                    template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./game.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/game.component.html")).default
                 })
-            ], QuizComponent);
+            ], GameComponent);
             /***/ 
         }),
         /***/ "./src/app/games.component.ts": 
@@ -1204,7 +1204,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             var GamesComponent = /** @class */ (function () {
                 function GamesComponent(api) {
                     this.api = api;
-                    this.quiz = {};
+                    this.game = {};
                 }
                 GamesComponent.prototype.ngOnInit = function () {
                     var _this = this;

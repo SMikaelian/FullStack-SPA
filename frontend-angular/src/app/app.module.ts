@@ -23,7 +23,7 @@ import { QuestionComponent } from './question.component'
 import { QuestionsComponent } from './questions.component'
 import{ HomeComponent} from './home.component'
 import{ NavComponent} from './nav.component'
-import { QuizComponent } from './quiz.component'
+import { GameComponent } from './game.component'
 import { GamesComponent} from './games.component'
 import {LoginComponent} from './login.component'
 import {AuthService} from './auth.service'
@@ -40,11 +40,11 @@ import { ProfileComponent } from './profile.component';
 const routes = [
   { path: '', component: HomeComponent},
   { path: 'question', component: QuestionComponent},
-  { path: 'question/:quizId', component: QuestionComponent},
+  { path: 'question/:gameId', component: QuestionComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'quiz', component: QuizComponent },
+  { path: 'game', component: GameComponent },
   { path: 'play', component: PlayComponent},
-  { path: 'playGame/:quizId', component: playGameComponent },
+  { path: 'playGame/:gameId', component: playGameComponent },
   { path: 'implicit/callback', component: OktaCallbackComponent},
   { path: 'myProfile', component: ProfileComponent}
 ]
@@ -64,7 +64,7 @@ const config = {
         QuestionsComponent, 
         HomeComponent, 
         NavComponent, 
-        QuizComponent, 
+        GameComponent, 
         GamesComponent, 
         LoginComponent,
         ProfileComponent,

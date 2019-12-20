@@ -3,8 +3,8 @@
 <mat-card>
     <mat-card-content>
         <h3>My Games:</h3>
-        <mat-list *ngFor="let quiz of games"> 
-            <mat-list-item class="clickLink" (click)="api.selectQuiz(quiz)">{{quiz.title}}</mat-list-item>
+        <mat-list *ngFor="let game of games"> 
+            <mat-list-item class="clickLink" (click)="api.selectGame(game)">{{game.title}}</mat-list-item>
         </mat-list>
     </mat-card-content>
     <mat-card-actions> 
