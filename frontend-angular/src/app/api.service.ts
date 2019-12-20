@@ -14,8 +14,8 @@ export class ApiService
     
     constructor(private http: HttpClient) {}
     
-    getQuestions(gameId) {
-        return this.http.get(`https://guessinggame20191216110748.azurewebsites.net/api/questions/${gameId}`);
+    getQuestions(quizId) {
+        return this.http.get(`https://guessinggame20191216110748.azurewebsites.net/api/questions/${quizId}`);
         }
         //https://localhost:44351
     getGames() {
@@ -39,21 +39,21 @@ export class ApiService
             console.log(res)
         })
     }
-    postGame(game) {
-        this.http.post('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', game).subscribe(res => {
+    postGame(quiz) {
+        this.http.post('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', quiz).subscribe(res => {
             console.log(res)
         })
     }
-    putGame(game)
+    putGame(quiz)
     {
-        this.http.put(`https://guessinggame20191216110748.azurewebsites.net/api/quizzes/${game.id}`, game).subscribe(res => {
+        this.http.put(`https://guessinggame20191216110748.azurewebsites.net/api/quizzes/${quiz.id}`, quiz).subscribe(res => {
             console.log(res)
         })
     }
     
-    deleteGame(game)
+    deleteGame(quiz)
     {
-        this.http.delete('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', game).subscribe(res => {
+        this.http.delete('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', quiz).subscribe(res => {
             console.log(res)
         })
     }
@@ -61,7 +61,7 @@ export class ApiService
     selectQuestion(question){ //actual function to execute it
         this.selectedQuestion.next(question)
     }
-    selectGame(game){
-        this.selectedGame.next(game)
+    selectGame(quiz){
+        this.selectedGame.next(quiz)
     }
 }

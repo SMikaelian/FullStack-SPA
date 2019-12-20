@@ -1,21 +1,21 @@
 <mat-card>
         <mat-card-title>
-          <span *ngIf="game.id">Edit Game</span>
-          <span *ngIf="!game.id">New Game</span>
+          <span *ngIf="quiz.id">Edit Game</span>
+          <span *ngIf="!quiz.id">New Game</span>
         </mat-card-title>
         <mat-card-content>
           <form>
             <mat-form-field class="fullWidth">
-              <input [(ngModel)]="game.title" name="title" matInput placeholder="Name of the game">
+              <input [(ngModel)]="quiz.title" name="title" matInput placeholder="Name of the game">
             </mat-form-field>
 
           </form>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button *ngIf="game.id" (click)="api.putGame(game)">EDIT</button>
-            <button mat-button *ngIf="game.id" (click)="game = {}">NEW</button>
-            <button mat-button *ngIf="game.id" [routerLink]="['/question', game.id]">EDIT GUESSES</button>
-            <button mat-button *ngIf="!game.id" (click)="api.postGame(game)">SUBMIT</button>
-            <!-- <button mat-button *ngIf="game.id" (click)="api.deleteGame(game)">DELETE</button> -->
+            <button mat-button *ngIf="quiz.id" (click)="api.putGame(quiz)">EDIT</button>
+            <button mat-button *ngIf="quiz.id" (click)="quiz = {}">NEW</button>
+            <button mat-button *ngIf="quiz.id" [routerLink]="['/question', quiz.id]">EDIT GUESSES</button>
+            <button mat-button *ngIf="!quiz.id" (click)="api.postGame(quiz)">SUBMIT</button>
+            <!-- <button mat-button *ngIf="quiz.id" (click)="api.deleteGame(quiz)">DELETE</button> -->
         </mat-card-actions>
       </mat-card>

@@ -10,14 +10,14 @@ import { ApiService } from './api.service'
 
 export class GamesComponent {
 
-    game = {}
-    games
+    quiz = {}
+    quizzes
 
     constructor(private api: ApiService){}
     
     ngOnInit(){
         this.api.getGames().subscribe(res => {
-            this.games = res
+            this.quizzes = res
         })
     }
 

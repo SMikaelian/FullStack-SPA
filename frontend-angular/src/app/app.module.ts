@@ -37,10 +37,10 @@ import { ProfileComponent } from './profile.component';
 const routes = [
   { path: '', component: HomeComponent},
   { path: 'question', component: QuestionComponent},
-  { path: 'question/:gameId', component: QuestionComponent},
-  { path: 'game', component: GameComponent },
+  { path: 'question/:quizId', component: QuestionComponent},
+  { path: 'game', component: GameComponent},
   { path: 'play', component: PlayComponent},
-  { path: 'playGame/:gameId', component: playGameComponent },
+  { path: 'playGame/:quizId', component: playGameComponent },
   { path: 'implicit/callback', component: OktaCallbackComponent},
   { path: 'myProfile', component: ProfileComponent}
 ]

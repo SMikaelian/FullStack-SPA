@@ -10,14 +10,14 @@ import { ApiService } from './api.service'
 
 export class GameComponent {
 
-    game = {}
+    quiz = {}
 
 
     constructor(private api: ApiService){
 
     }
     ngOnInit(){ //when a question is clicked it will be notified here in subscribe and we will take that value and set it to our components property
-        this.api.gameSelected.subscribe(game => this.game = game)
+        this.api.gameSelected.subscribe(quiz => this.quiz = quiz)
     }
     
 
