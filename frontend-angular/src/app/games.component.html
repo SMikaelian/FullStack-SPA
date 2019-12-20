@@ -1,10 +1,12 @@
+<br>
 <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 <br>
 <mat-card>
     <mat-card-content>
-        <h3>My Games:</h3>
+        <h3> My Games:</h3>
         <mat-list *ngFor="let game of games"> 
             <mat-list-item class="clickLink" (click)="api.selectGame(game)">{{game.title}}</mat-list-item>
+            <mat-divider></mat-divider>
         </mat-list>
     </mat-card-content>
     <mat-card-actions> 

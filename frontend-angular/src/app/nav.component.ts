@@ -10,7 +10,7 @@ import { OktaAuthService } from '@okta/okta-angular';
     <button mat-fab color="primary" routerLink="/play">Play</button>
     <span style="flex: 1 1 auto;"></span>
     <button mat-button *ngIf="!isAuthenticated" (click)="login()"> Login </button>
-    <button mat-buttonn *ngIf="isAuthenticated" (click)="logout()"> Logout </button>
+    <button mat-button *ngIf="isAuthenticated" (click)="logout()"> Logout </button>
   </mat-toolbar>
   `
 })
