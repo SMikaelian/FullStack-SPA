@@ -35,7 +35,7 @@ The project is utilizing Entity Framework for Object Relational Mapping, I used 
 Dependency Injections is being done by default in Angular and ASP.NET Core, it can be found throughout the code.
 
 ## Authentication, Authorization, and Single Sign On
-The third party Identity Provider Okta is used to authenticate users and to only allow authenticated users to use the functions.
+The third party Identity Provider Okta is used to authenticate users and to only allow authenticated users to create new games and edit the questions and guessing options of the games.
 
 ## Continous Deployment & Continous Integration
 Microsoft Azure DevOps is being utilized to continuously deploy the backend.
