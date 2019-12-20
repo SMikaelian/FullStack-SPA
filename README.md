@@ -50,7 +50,7 @@ The frontend is being hosted on Netlify (https://myguessing-game.netlify.com/)
 I attempted Unit Testing and I have generated some code for it. It can be found in the repository under Unit Testing.
 
 
-- Objectives:
+### Objectives of the project:
 Creating and configuring the Angular project.
 Creating get and post routes in an ASP.NET Core controller - CRUD operations.
 Updating Angular service to post to API.
