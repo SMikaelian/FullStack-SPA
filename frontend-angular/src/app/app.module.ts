@@ -25,9 +25,6 @@ import{ HomeComponent} from './home.component'
 import{ NavComponent} from './nav.component'
 import { GameComponent } from './game.component'
 import { GamesComponent} from './games.component'
-import {LoginComponent} from './login.component'
-import {AuthService} from './auth.service'
-import {AuthInterceptor} from './auth.interceptor'
 import { PlayComponent} from './play.component'
 import{ playGameComponent} from './playGame.component'
 import {FinishedComponent} from './finished.component'
@@ -41,7 +38,6 @@ const routes = [
   { path: '', component: HomeComponent},
   { path: 'question', component: QuestionComponent},
   { path: 'question/:gameId', component: QuestionComponent},
-  { path: 'login', component: LoginComponent },
   { path: 'game', component: GameComponent },
   { path: 'play', component: PlayComponent},
   { path: 'playGame/:gameId', component: playGameComponent },
@@ -65,8 +61,7 @@ const config = {
         HomeComponent, 
         NavComponent, 
         GameComponent, 
-        GamesComponent, 
-        LoginComponent,
+        GamesComponent,
         ProfileComponent,
         PlayComponent,
         playGameComponent,
@@ -92,11 +87,7 @@ const config = {
       MatDialogModule,
       OktaAuthModule.initAuth(config)
   ],
-  providers: [ApiService, AuthService, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true
-  }],
+  providers: [ApiService],
   bootstrap: [AppComponent],
   //for dialogs we need to register them differently.
   entryComponents: [FinishedComponent]
