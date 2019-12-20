@@ -7,13 +7,13 @@ import { ApiService } from './api.service'
 })
 export class PlayComponent {
 
-    quizzes
+    games
 
     constructor(private api: ApiService) {}
 
     ngOnInit() { //when a question is clicked it will be notified here in subscribe and we will take that value and set it to our components property
-        this.api.getAllQuizzes().subscribe(res => {
-            this.quizzes = res
+        this.api.getAllGames().subscribe(res => {
+            this.games = res
         })
     }
 }

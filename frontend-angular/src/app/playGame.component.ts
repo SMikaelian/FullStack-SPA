@@ -9,7 +9,7 @@ import {FinishedComponent} from './finished.component'
 export class playGameComponent {
 
     quizId
-    questions //object for the quizzes list
+    questions //object for the games list
 	
 	//Inject the MatDialog in the constructor
     constructor(private api: ApiService, private route: ActivatedRoute, private dialog: MatDialog) { }

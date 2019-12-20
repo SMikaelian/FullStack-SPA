@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n    <mat-card-content>\r\n        <mat-list *ngFor=\"let quiz of quizzes\"> \r\n            <mat-list-item class=\"clickLink\" [routerLink]=\"['/playGame', quiz.id]\">{{quiz.title}}</mat-list-item>\r\n        </mat-list>\r\n    </mat-card-content>\r\n    <mat-card-actions> \r\n    </mat-card-actions>\r\n</mat-card>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n    <mat-card-content>\r\n        <mat-list *ngFor=\"let quiz of games\"> \r\n            <mat-list-item class=\"clickLink\" [routerLink]=\"['/playGame', quiz.id]\">{{quiz.title}}</mat-list-item>\r\n        </mat-list>\r\n    </mat-card-content>\r\n    <mat-card-actions> \r\n    </mat-card-actions>\r\n</mat-card>\r\n");
 
 /***/ }),
 
@@ -101,16 +101,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/quizzes.component.html":
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/games.component.html":
 /*!******************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/quizzes.component.html ***!
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/games.component.html ***!
   \******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<br>\r\n<mat-card>\r\n    <mat-card-content>\r\n        <h3>My Games:</h3>\r\n        <mat-list *ngFor=\"let quiz of quizzes\"> \r\n            <mat-list-item class=\"clickLink\" (click)=\"api.selectQuiz(quiz)\">{{quiz.title}}</mat-list-item>\r\n        </mat-list>\r\n    </mat-card-content>\r\n    <mat-card-actions> \r\n    </mat-card-actions>\r\n</mat-card>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<br>\r\n<mat-card>\r\n    <mat-card-content>\r\n        <h3>My Games:</h3>\r\n        <mat-list *ngFor=\"let quiz of games\"> \r\n            <mat-list-item class=\"clickLink\" (click)=\"api.selectQuiz(quiz)\">{{quiz.title}}</mat-list-item>\r\n        </mat-list>\r\n    </mat-card-content>\r\n    <mat-card-actions> \r\n    </mat-card-actions>\r\n</mat-card>\r\n");
 
 /***/ }),
 
@@ -386,10 +386,10 @@ let ApiService = class ApiService {
         return this.http.get(`https://guessinggame20191216110748.azurewebsites.net/api/questions/${quizId}`);
     }
     //https://localhost:44351
-    getQuizzes() {
+    getGames() {
         return this.http.get('https://guessinggame20191216110748.azurewebsites.net/api/quizzes');
     }
-    getAllQuizzes() {
+    getAllGames() {
         return this.http.get('https://guessinggame20191216110748.azurewebsites.net/api/quizzes/all');
     }
     postQuestion(question) {
@@ -527,7 +527,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./home.component */ "./src/app/home.component.ts");
 /* harmony import */ var _nav_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./nav.component */ "./src/app/nav.component.ts");
 /* harmony import */ var _quiz_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./quiz.component */ "./src/app/quiz.component.ts");
-/* harmony import */ var _quizzes_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./quizzes.component */ "./src/app/quizzes.component.ts");
+/* harmony import */ var _games_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./games.component */ "./src/app/games.component.ts");
 /* harmony import */ var _register_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./register.component */ "./src/app/register.component.ts");
 /* harmony import */ var _login_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./login.component */ "./src/app/login.component.ts");
 /* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
@@ -602,7 +602,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _home_component__WEBPACK_IMPORTED_MODULE_20__["HomeComponent"],
             _nav_component__WEBPACK_IMPORTED_MODULE_21__["NavComponent"],
             _quiz_component__WEBPACK_IMPORTED_MODULE_22__["QuizComponent"],
-            _quizzes_component__WEBPACK_IMPORTED_MODULE_23__["QuizzesComponent"],
+            _games_component__WEBPACK_IMPORTED_MODULE_23__["GamesComponent"],
             _register_component__WEBPACK_IMPORTED_MODULE_24__["RegisterComponent"],
             _login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"],
             _profile_component__WEBPACK_IMPORTED_MODULE_32__["ProfileComponent"],
@@ -788,7 +788,7 @@ let HomeComponent = class HomeComponent {
 };
 HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: '<quiz></quiz><quizzes><quizzes>'
+        template: '<quiz></quiz><games><games>'
     })
 ], HomeComponent);
 
@@ -927,8 +927,8 @@ let PlayComponent = class PlayComponent {
         this.api = api;
     }
     ngOnInit() {
-        this.api.getAllQuizzes().subscribe(res => {
-            this.quizzes = res;
+        this.api.getAllGames().subscribe(res => {
+            this.games = res;
         });
     }
 };
@@ -1213,42 +1213,42 @@ QuizComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/quizzes.component.ts":
+/***/ "./src/app/games.component.ts":
 /*!**************************************!*\
-  !*** ./src/app/quizzes.component.ts ***!
+  !*** ./src/app/games.component.ts ***!
   \**************************************/
-/*! exports provided: QuizzesComponent */
+/*! exports provided: GamesComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QuizzesComponent", function() { return QuizzesComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GamesComponent", function() { return GamesComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./api.service */ "./src/app/api.service.ts");
 
 
 
-let QuizzesComponent = class QuizzesComponent {
+let GamesComponent = class GamesComponent {
     constructor(api) {
         this.api = api;
         this.quiz = {};
     }
     ngOnInit() {
-        this.api.getQuizzes().subscribe(res => {
-            this.quizzes = res;
+        this.api.getGames().subscribe(res => {
+            this.games = res;
         });
     }
 };
-QuizzesComponent.ctorParameters = () => [
+GamesComponent.ctorParameters = () => [
     { type: _api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"] }
 ];
-QuizzesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+GamesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'quizzes',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./quizzes.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/quizzes.component.html")).default
+        selector: 'games',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./games.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/games.component.html")).default
     })
-], QuizzesComponent);
+], GamesComponent);
 
 
 

@@ -24,7 +24,7 @@ import { QuestionsComponent } from './questions.component'
 import{ HomeComponent} from './home.component'
 import{ NavComponent} from './nav.component'
 import { QuizComponent } from './quiz.component'
-import { QuizzesComponent} from './quizzes.component'
+import { GamesComponent} from './games.component'
 import {RegisterComponent} from './register.component'
 import {LoginComponent} from './login.component'
 import {AuthService} from './auth.service'
@@ -67,7 +67,7 @@ const config = {
         HomeComponent, 
         NavComponent, 
         QuizComponent, 
-        QuizzesComponent, 
+        GamesComponent, 
         RegisterComponent,
         LoginComponent,
         ProfileComponent,

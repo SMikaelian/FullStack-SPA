@@ -18,11 +18,11 @@ export class ApiService
         return this.http.get(`https://guessinggame20191216110748.azurewebsites.net/api/questions/${quizId}`);
         }
         //https://localhost:44351
-    getQuizzes() {
+    getGames() {
         return this.http.get('https://guessinggame20191216110748.azurewebsites.net/api/quizzes');
         }
 
-    getAllQuizzes() {
+    getAllGames() {
         return this.http.get('https://guessinggame20191216110748.azurewebsites.net/api/quizzes/all');
         }
     
