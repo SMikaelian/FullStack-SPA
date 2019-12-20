@@ -4,9 +4,9 @@ import {ActivatedRoute} from '@angular/router'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {FinishedComponent} from './finished.component'
 @Component({
-    templateUrl: './playQuiz.component.html'
+    templateUrl: './playGame.component.html'
 })
-export class PlayQuizComponent {
+export class playGameComponent {
 
     quizId
     questions //object for the quizzes list

@@ -1,6 +1,6 @@
 <mat-card>
+    <mat-spinner style="margin:0 auto;"></mat-spinner>
     <mat-card-content>
-        
         <mat-accordion>
             <mat-expansion-panel *ngFor="let question of questions; 
                 let i = index" [expanded]="step === i" (opened)="setStep(i)">

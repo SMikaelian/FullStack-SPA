@@ -66,12 +66,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n    <mat-card-content>\r\n        <mat-list *ngFor=\"let quiz of quizzes\"> \r\n            <mat-list-item class=\"clickLink\" [routerLink]=\"['/playQuiz', quiz.id]\">{{quiz.title}}</mat-list-item>\r\n        </mat-list>\r\n    </mat-card-content>\r\n    <mat-card-actions> \r\n    </mat-card-actions>\r\n</mat-card>\r\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n    <mat-card-content>\r\n        <mat-list *ngFor=\"let quiz of quizzes\"> \r\n            <mat-list-item class=\"clickLink\" [routerLink]=\"['/playGame', quiz.id]\">{{quiz.title}}</mat-list-item>\r\n        </mat-list>\r\n    </mat-card-content>\r\n    <mat-card-actions> \r\n    </mat-card-actions>\r\n</mat-card>\r\n");
             /***/ 
         }),
-        /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/playQuiz.component.html": 
+        /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/playGame.component.html": 
         /*!*******************************************************************************!*\
-          !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/playQuiz.component.html ***!
+          !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/playGame.component.html ***!
           \*******************************************************************************/
         /*! exports provided: default */
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
@@ -597,7 +597,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             /* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
             /* harmony import */ var _auth_interceptor__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./auth.interceptor */ "./src/app/auth.interceptor.ts");
             /* harmony import */ var _play_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./play.component */ "./src/app/play.component.ts");
-            /* harmony import */ var _playQuiz_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./playQuiz.component */ "./src/app/playQuiz.component.ts");
+            /* harmony import */ var _playGame_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./playGame.component */ "./src/app/playGame.component.ts");
             /* harmony import */ var _finished_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./finished.component */ "./src/app/finished.component.ts");
             /* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @okta/okta-angular */ "./node_modules/@okta/okta-angular/dist/src/index.js");
             /* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/ __webpack_require__.n(_okta_okta_angular__WEBPACK_IMPORTED_MODULE_31__);
@@ -611,7 +611,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                 { path: 'login', component: _login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"] },
                 { path: 'quiz', component: _quiz_component__WEBPACK_IMPORTED_MODULE_22__["QuizComponent"] },
                 { path: 'play', component: _play_component__WEBPACK_IMPORTED_MODULE_28__["PlayComponent"] },
-                { path: 'playQuiz/:quizId', component: _playQuiz_component__WEBPACK_IMPORTED_MODULE_29__["PlayQuizComponent"] },
+                { path: 'playGame/:quizId', component: _playGame_component__WEBPACK_IMPORTED_MODULE_29__["playGameComponent"] },
                 { path: 'implicit/callback', component: _okta_okta_angular__WEBPACK_IMPORTED_MODULE_31__["OktaCallbackComponent"] },
                 { path: 'profile', component: _profile_component__WEBPACK_IMPORTED_MODULE_32__["ProfileComponent"] }
             ];
@@ -641,7 +641,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                         _login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"],
                         _profile_component__WEBPACK_IMPORTED_MODULE_32__["ProfileComponent"],
                         _play_component__WEBPACK_IMPORTED_MODULE_28__["PlayComponent"],
-                        _playQuiz_component__WEBPACK_IMPORTED_MODULE_29__["PlayQuizComponent"],
+                        _playGame_component__WEBPACK_IMPORTED_MODULE_29__["playGameComponent"],
                         _finished_component__WEBPACK_IMPORTED_MODULE_30__["FinishedComponent"]
                     ],
                     imports: [
@@ -945,30 +945,30 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             ], PlayComponent);
             /***/ 
         }),
-        /***/ "./src/app/playQuiz.component.ts": 
+        /***/ "./src/app/playGame.component.ts": 
         /*!***************************************!*\
-          !*** ./src/app/playQuiz.component.ts ***!
+          !*** ./src/app/playGame.component.ts ***!
           \***************************************/
-        /*! exports provided: PlayQuizComponent */
+        /*! exports provided: playGameComponent */
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlayQuizComponent", function () { return PlayQuizComponent; });
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "playGameComponent", function () { return playGameComponent; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./api.service */ "./src/app/api.service.ts");
             /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
             /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
             /* harmony import */ var _finished_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./finished.component */ "./src/app/finished.component.ts");
-            var PlayQuizComponent = /** @class */ (function () {
+            var playGameComponent = /** @class */ (function () {
                 //Inject the MatDialog in the constructor
-                function PlayQuizComponent(api, route, dialog) {
+                function playGameComponent(api, route, dialog) {
                     this.api = api;
                     this.route = route;
                     this.dialog = dialog;
                     this.step = 0;
                 }
-                PlayQuizComponent.prototype.ngOnInit = function () {
+                playGameComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this.quizId = this.route.snapshot.paramMap.get('quizId');
                     this.api.getQuestions(this.quizId).subscribe(function (res) {
@@ -981,7 +981,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                     });
                 };
                 //Total of the order $
-                PlayQuizComponent.prototype.finish = function () {
+                playGameComponent.prototype.finish = function () {
                     var correct = 0;
                     this.questions.forEach(function (q) {
                         if (q.correctAnswer == q.selectedAnswer)
@@ -992,27 +992,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                     });
                     console.log(correct);
                 };
-                PlayQuizComponent.prototype.setStep = function (index) {
+                playGameComponent.prototype.setStep = function (index) {
                     this.step = index;
                 };
-                PlayQuizComponent.prototype.nextStep = function () {
+                playGameComponent.prototype.nextStep = function () {
                     this.step++;
                 };
-                PlayQuizComponent.prototype.prevStep = function () {
+                playGameComponent.prototype.prevStep = function () {
                     this.step--;
                 };
-                return PlayQuizComponent;
+                return playGameComponent;
             }());
-            PlayQuizComponent.ctorParameters = function () { return [
+            playGameComponent.ctorParameters = function () { return [
                 { type: _api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"] },
                 { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
                 { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"] }
             ]; };
-            PlayQuizComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+            playGameComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-                    template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./playQuiz.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/playQuiz.component.html")).default
+                    template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./playGame.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/playGame.component.html")).default
                 })
-            ], PlayQuizComponent);
+            ], playGameComponent);
             function shuffle(a) {
                 var _a;
                 for (var i = a.length; i; i--) {

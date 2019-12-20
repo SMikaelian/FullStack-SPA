@@ -12,6 +12,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {ApiService} from './api.service'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +30,7 @@ import {LoginComponent} from './login.component'
 import {AuthService} from './auth.service'
 import {AuthInterceptor} from './auth.interceptor'
 import { PlayComponent} from './play.component'
-import{ PlayQuizComponent} from './playQuiz.component'
+import{ playGameComponent} from './playGame.component'
 import {FinishedComponent} from './finished.component'
 import {OktaAuthModule, OktaCallbackComponent, OktaAuthGuard} from '@okta/okta-angular';
 import { ProfileComponent } from './profile.component';
@@ -43,7 +46,7 @@ const routes = [
   { path: 'login', component: LoginComponent },
   { path: 'quiz', component: QuizComponent },
   { path: 'play', component: PlayComponent},
-  { path: 'playQuiz/:quizId', component: PlayQuizComponent },
+  { path: 'playGame/:quizId', component: playGameComponent },
   { path: 'implicit/callback', component: OktaCallbackComponent},
   { path: 'myProfile', component: ProfileComponent}
 ]
@@ -69,7 +72,7 @@ const config = {
         LoginComponent,
         ProfileComponent,
         PlayComponent,
-        PlayQuizComponent,
+        playGameComponent,
         FinishedComponent
   ],
   imports: [
@@ -82,10 +85,13 @@ const config = {
       MatCardModule, 
       FormsModule, 
       MatListModule,
-      MatToolbarModule, 
+      MatToolbarModule,
+      MatIconModule,
       ReactiveFormsModule,
       MatExpansionModule,
       MatRadioModule,
+      MatProgressBarModule,
+      MatProgressSpinnerModule,
       MatDialogModule,
       OktaAuthModule.initAuth(config)
   ],

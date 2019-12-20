@@ -45,13 +45,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n    <mat-card-content>\r\n        <mat-list *ngFor=\"let quiz of quizzes\"> \r\n            <mat-list-item class=\"clickLink\" [routerLink]=\"['/playQuiz', quiz.id]\">{{quiz.title}}</mat-list-item>\r\n        </mat-list>\r\n    </mat-card-content>\r\n    <mat-card-actions> \r\n    </mat-card-actions>\r\n</mat-card>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-card>\r\n    <mat-card-content>\r\n        <mat-list *ngFor=\"let quiz of quizzes\"> \r\n            <mat-list-item class=\"clickLink\" [routerLink]=\"['/playGame', quiz.id]\">{{quiz.title}}</mat-list-item>\r\n        </mat-list>\r\n    </mat-card-content>\r\n    <mat-card-actions> \r\n    </mat-card-actions>\r\n</mat-card>\r\n");
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/playQuiz.component.html":
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/playGame.component.html":
 /*!*******************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/playQuiz.component.html ***!
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/playGame.component.html ***!
   \*******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -533,7 +533,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./auth.service */ "./src/app/auth.service.ts");
 /* harmony import */ var _auth_interceptor__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./auth.interceptor */ "./src/app/auth.interceptor.ts");
 /* harmony import */ var _play_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./play.component */ "./src/app/play.component.ts");
-/* harmony import */ var _playQuiz_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./playQuiz.component */ "./src/app/playQuiz.component.ts");
+/* harmony import */ var _playGame_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./playGame.component */ "./src/app/playGame.component.ts");
 /* harmony import */ var _finished_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./finished.component */ "./src/app/finished.component.ts");
 /* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @okta/okta-angular */ "./node_modules/@okta/okta-angular/dist/src/index.js");
 /* harmony import */ var _okta_okta_angular__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(_okta_okta_angular__WEBPACK_IMPORTED_MODULE_31__);
@@ -580,7 +580,7 @@ const routes = [
     { path: 'login', component: _login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"] },
     { path: 'quiz', component: _quiz_component__WEBPACK_IMPORTED_MODULE_22__["QuizComponent"] },
     { path: 'play', component: _play_component__WEBPACK_IMPORTED_MODULE_28__["PlayComponent"] },
-    { path: 'playQuiz/:quizId', component: _playQuiz_component__WEBPACK_IMPORTED_MODULE_29__["PlayQuizComponent"] },
+    { path: 'playGame/:quizId', component: _playGame_component__WEBPACK_IMPORTED_MODULE_29__["playGameComponent"] },
     { path: 'implicit/callback', component: _okta_okta_angular__WEBPACK_IMPORTED_MODULE_31__["OktaCallbackComponent"] },
     { path: 'profile', component: _profile_component__WEBPACK_IMPORTED_MODULE_32__["ProfileComponent"] }
 ];
@@ -607,7 +607,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"],
             _profile_component__WEBPACK_IMPORTED_MODULE_32__["ProfileComponent"],
             _play_component__WEBPACK_IMPORTED_MODULE_28__["PlayComponent"],
-            _playQuiz_component__WEBPACK_IMPORTED_MODULE_29__["PlayQuizComponent"],
+            _playGame_component__WEBPACK_IMPORTED_MODULE_29__["playGameComponent"],
             _finished_component__WEBPACK_IMPORTED_MODULE_30__["FinishedComponent"]
         ],
         imports: [
@@ -946,16 +946,16 @@ PlayComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/playQuiz.component.ts":
+/***/ "./src/app/playGame.component.ts":
 /*!***************************************!*\
-  !*** ./src/app/playQuiz.component.ts ***!
+  !*** ./src/app/playGame.component.ts ***!
   \***************************************/
-/*! exports provided: PlayQuizComponent */
+/*! exports provided: playGameComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlayQuizComponent", function() { return PlayQuizComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "playGameComponent", function() { return playGameComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./api.service */ "./src/app/api.service.ts");
@@ -968,7 +968,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let PlayQuizComponent = class PlayQuizComponent {
+let playGameComponent = class playGameComponent {
     //Inject the MatDialog in the constructor
     constructor(api, route, dialog) {
         this.api = api;
@@ -1009,16 +1009,16 @@ let PlayQuizComponent = class PlayQuizComponent {
         this.step--;
     }
 };
-PlayQuizComponent.ctorParameters = () => [
+playGameComponent.ctorParameters = () => [
     { type: _api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"] }
 ];
-PlayQuizComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+playGameComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./playQuiz.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/playQuiz.component.html")).default
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./playGame.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/playGame.component.html")).default
     })
-], PlayQuizComponent);
+], playGameComponent);
 
 function shuffle(a) {
     for (let i = a.length; i; i--) {
