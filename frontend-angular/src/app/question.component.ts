@@ -27,7 +27,7 @@ export class QuestionComponent {
         question.gameId= this.gameId
         this.api.postQuestion(question)
         //this.question="";
-        window.location.reload(true);
+        //window.location.reload(true);
         //this.arrayQ.push(question);
     }
 
