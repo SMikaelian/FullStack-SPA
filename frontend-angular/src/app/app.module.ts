@@ -36,8 +36,8 @@ import { ProfileComponent } from './profile.component';
 //Creating routes in angular - URL routes
 const routes = [
   { path: '', component: HomeComponent},
-  { path: 'question', component: QuestionComponent, canActivate:[OktaAuthGuard]},
-  { path: 'question/:gameId', component: QuestionComponent, canActivate:[OktaAuthGuard]},
+  { path: 'question', component: QuestionComponent},
+  { path: 'question/:gameId', component: QuestionComponent},
   { path: 'game', component: GameComponent },
   { path: 'play', component: PlayComponent},
   { path: 'playGame/:gameId', component: playGameComponent },
