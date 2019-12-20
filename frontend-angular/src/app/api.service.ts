@@ -6,10 +6,10 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class ApiService
 {
-    private selectedQuestion = new Subject<any>(); //selectedQ. property will hold reference to the question we clicked on and select it.
+    private selectedQuestion = new Subject<any>(); //selectedG. property will hold reference to the question we clicked on and select it.
     questionSelected= this.selectedQuestion.asObservable();
 
-    private selectedGame = new Subject<any>(); //selectedQ. property will hold reference to the question we clicked on and select it.
+    private selectedGame = new Subject<any>(); //selectedG. property will hold reference to the question we clicked on and select it.
     gameSelected= this.selectedGame.asObservable();
     
     constructor(private http: HttpClient) {}
