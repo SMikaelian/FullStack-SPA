@@ -13,7 +13,7 @@ namespace guessinggame
 {
     public class QuizContext : DbContext
     {
-        //public QuizContext() {}
+        //public GamesContext() {}
 
         public QuizContext(DbContextOptions<guessinggame.QuizContext> options) : base(options) { }
 
@@ -53,7 +53,7 @@ namespace guessinggame
 
     //    public DbSet<guessinggame.Models.Question> Questions { get; set; }
 
-    //    public DbSet<guessinggame.Models.Quiz> Quiz { get; set; }
+    //    public DbSet<guessinggame.Models.Game> Game { get; set; }
 
     //}
 }

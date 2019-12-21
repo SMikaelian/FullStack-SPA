@@ -22,7 +22,7 @@ namespace guessinggame.Controllers
             _context = context;
         }
 
-        // GET: api/Quizzes
+        // GET: api/Games
         //[Authorize]
         [HttpGet]
         public IEnumerable<Quiz> GetQuiz()
@@ -39,7 +39,7 @@ namespace guessinggame.Controllers
         }
 
 
-        // GET: api/Quizzes/5
+        // GET: api/Games/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetQuiz([FromRoute] int id)
         {
