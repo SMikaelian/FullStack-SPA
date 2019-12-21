@@ -27,6 +27,7 @@ namespace guessinggame.Models
         [InverseProperty("Question")]
         public Quiz Quiz { get; set; }
     }
+
     //public class Question
     //{
     //    public int ID { get; set; }

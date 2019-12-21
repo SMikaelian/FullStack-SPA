@@ -40,13 +40,4 @@ export class NavComponent {
     this.oktaAuth.logout('/');
   }
 }
-
-
 //Router-outlet let's angular know where to render the view you are trying to route to
-
-// <span style="flex: 1 1 auto;"></span>
-// <button *ngIf="!isAuthenticated" (click)="login()"> Login </button>
-// <button *ngIf="isAuthenticated" (click)="logout()"> Logout </button>
-// <button *ngIf="!auth.isAuthenticated" mat-button routerLink="/register">Register</button>
-// <button *ngIf="!auth.isAuthenticated" mat-button routerLink="/login">Login</button>
-// <button *ngIf="auth.isAuthenticated" mat-button (click)="auth.logout()">Logout</button>
