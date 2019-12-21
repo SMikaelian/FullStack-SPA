@@ -26,7 +26,7 @@ export class QuestionComponent {
     post(question) {
         question.quizId= this.quizId
         this.api.postQuestion(question)
-        //this.question="";
+        this.question="";
         //window.location.reload(true);
         //this.arrayQ.push(question);
     }
