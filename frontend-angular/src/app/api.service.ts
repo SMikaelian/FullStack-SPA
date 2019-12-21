@@ -44,6 +44,16 @@ export class ApiService
             console.log(res)
         })
     }
+        // async postGame(quiz) {
+    //     const accessToken = await this.oktaAuth.getAccessToken();
+    //     const headers = new HttpHeaders({
+    //       Authorization: 'Bearer ' + accessToken
+    //     });
+    //     this.http.post('https://guessinggame20191216110748.azurewebsites.net/api/quizzes', quiz, {headers: new HttpHeaders headers({})
+    // }).subscribe(res => {
+    //         console.log(res)
+    //     })
+    // }
     putGame(quiz)
     {
         this.http.put(`https://guessinggame20191216110748.azurewebsites.net/api/quizzes/${quiz.id}`, quiz).subscribe(res => {
